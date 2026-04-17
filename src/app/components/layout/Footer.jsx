@@ -5,7 +5,7 @@ import Image from "next/image";
 
 // ICONOS (recomendado)
 import { Phone, MapPin, Mail } from "lucide-react";
-import { sucursales, navLinks } from "@/app/utils/constants/navLinks";
+import { sucursales, navLinks } from "@/utils/constants/navLinks";
 
 export default function Footer() {
   return (

@@ -13,6 +13,11 @@
 }
 
 @theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
   /* ========== COLORES DE MARCA ========== */
   --color-brand-primary: #004d60;
   --color-brand-accent: #00695c;

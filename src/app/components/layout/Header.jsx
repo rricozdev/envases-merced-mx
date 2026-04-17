@@ -1,7 +1,7 @@
 "use client";
 
-import { navLinks } from "@/app/utils/constants/navLinks.js";
-import { OVERLAYS } from "@/app/utils/constants/overlays.js";
+import { navLinks } from "@/utils/constants/navLinks.js";
+import { OVERLAYS } from "@/utils/constants/overlays.js";
 import { ChevronDown, Menu, Moon, ShoppingCart, Sun, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
