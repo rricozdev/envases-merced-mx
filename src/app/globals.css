@@ -12,6 +12,39 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  /* ========== COLORES DE MARCA ========== */
+  --color-brand-primary: #004d60;
+  --color-brand-accent: #00695c;
+  --color-brand-accent-hover: #008f85;
+
+  /* colores de modo oscuro */
+  --color-txtdark-primary: #e0e0e0;
+  --color-txtdark-secondary: #b0b0b0;
+  --color-txtdark-brand-primary: #ffffff;
+
+  --color-bgdark-main: #1a1a2e;
+  --color-bgdark-secondary: #2c2c42;
+  --color-bgdark-tertiary: #3d3d5a;
+  --color-bgdark-footer: #111c27;
+
+  --color-dark-border: #4c4c6a;
+
+  /* Colores de Modo Claro */
+  --color-txtligth-primary: #1e3a5f;
+  --color-txtligth-brand-primary: #ffffff;
+  --color-txtligth-secondary: #666666;
+
+  --color-bgligth-main: #ffffff;
+  --color-bgligth-secondary: #f0f2f5;
+  --color-bgligth-tertiary: #e8ecef;
+  --color-bgligth-footer: #1e3a5f;
+
+  --color-light-border: #dddddd;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
