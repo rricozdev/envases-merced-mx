@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import Providers from "./components/providers/Providers";
+import Header from "./components/layout/header";
 
 // TODO: cambiar fuentes por la usadas
 const geistSans = Geist({
@@ -73,7 +75,7 @@ export const metadata = {
         alt: "Catálogo de envases PET al mayoreo en México",
       },
       {
-        url: "https://envaseslamerced.mx/1000156628.jpeg",
+        url: "https://envaseslamerced.mx/assets/bg_img/bg2.webp",
         width: 800,
         height: 600,
         alt: "Envases La Merced - Distribuidor",
@@ -127,30 +129,6 @@ export const metadata = {
   },
 };
 
-// STRUCTURED DATA (SEO AVANZADO)
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WholesaleStore",
-  name: "Envases La Merced",
-  url: "https://envaseslamerced.mx/",
-  logo: "https://envaseslamerced.mx/logo_dark_mode.png",
-  image: "https://envaseslamerced.mx/assets/bg_img/bg2.webp",
-  description:
-    "Distribuidor de envases PET al mayoreo en México. Botellas, frascos y tapas para alimentos, cosméticos y limpieza.",
-  sameAs: [
-    "https://www.facebook.com/EnvasesLaMercedCDMX",
-    "https://www.facebook.com/EnvasesLaMercedPuebla",
-    "https://www.facebook.com/EnvasesLaMercedVeracruz",
-  ],
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: "+52-55-7667-6045",
-      contactType: "customer service",
-    },
-  ],
-};
-
 // LAYOUT
 export default function RootLayout({ children }) {
   return (
@@ -158,6 +136,25 @@ export default function RootLayout({ children }) {
       lang="es-MX"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          (function () {
+            try {
+              var theme = localStorage.getItem('theme');
+              if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+              } else if (!theme) {
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (prefersDark) {
+                  document.documentElement.classList.add('dark');
+                }
+              }
+            } catch (e) {}
+          })();
+        `,
+        }}
+      />
       <body className="min-h-full flex flex-col">
         {/* GOOGLE TAG MANAGER  */}
         <Script
@@ -173,17 +170,10 @@ export default function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-
-        {/* STRUCTURED DATA  */}
-        <Script
-          id="json-ld"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
-          }}
-        />
-        {children}
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );
