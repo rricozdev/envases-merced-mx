@@ -2,7 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Providers from "./components/providers/Providers";
-import Header from "./components/layout/header";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 
 // TODO: cambiar fuentes por la usadas
 const geistSans = Geist({
@@ -173,6 +174,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <Header />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
