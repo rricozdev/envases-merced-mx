@@ -1,22 +1,22 @@
 const SIZE_VARIANTS = {
   sm: {
-    card: "md:p-6 md:gap-4",
-    iconWrapper: "md:size-12",
-    icon: "md:size-5",
+    card: "md:p-4 md:gap-3",
+    iconWrapper: "md:size-10",
+    icon: "md:size-4",
     title: "md:text-sm",
-    body: "md:text-sm",
+    body: "md:text-xs",
   },
   md: {
-    card: "md:p-7 md:gap-5",
-    iconWrapper: "md:size-14",
-    icon: "md:size-6",
+    card: "md:p-5 md:gap-4",
+    iconWrapper: "md:size-12",
+    icon: "md:size-5",
     title: "md:text-base",
     body: "md:text-sm",
   },
   lg: {
-    card: "md:p-9 md:gap-6",
-    iconWrapper: "md:size-18",
-    icon: "md:size-9",
+    card: "md:p-7 md:gap-5",
+    iconWrapper: "md:size-16",
+    icon: "md:size-7",
     title: "md:text-lg",
     body: "md:text-base",
   },
@@ -73,7 +73,7 @@ export default function CardInfo({
       className={`
         relative flex flex-col
         ${alignment}
-        gap-4 p-6 rounded-2xl shadow-sm
+        gap-4 p-4 rounded-2xl shadow-sm
         transition-all duration-300
         hover:-translate-y-1 hover:shadow-md
         ${colorVariant.card}
@@ -100,7 +100,7 @@ export default function CardInfo({
         {title && (
           <h3
             className={`
-              font-bold text-base leading-snug
+              font-bold text-base leading-snug font-primary
               ${colorVariant.title}
               ${sizeVariant.title}
             `}
@@ -112,7 +112,7 @@ export default function CardInfo({
         {description && (
           <p
             className={`
-              text-sm leading-relaxed
+              text-sm leading-snug font-secondary font-medium
               ${colorVariant.body}
               ${sizeVariant.body}
             `}
@@ -124,7 +124,7 @@ export default function CardInfo({
         {detail && (
           <span
             className={`
-              mt-1 text-xs font-medium
+              mt-1 text-xs font-medium font-secondary dark:text-brand-accent-hover
               ${colorVariant.detail}
             `}
           >
