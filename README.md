@@ -15,7 +15,7 @@
 
 ## Arquitectura de Estilos
 
-El archivo global (`globals.css`) será la fuente central del sistema de diseño.
+El archivo global (`globals.css`) será la fuente central del sistema de diseño. Recuerden `First Responsive`.
 
 ### Estructura de Design Tokens
 
@@ -60,6 +60,41 @@ Sí, es **buena práctica** en Next.js:
 - `public/` permite acceso directo
 - Compatible con `next/image`
 - Mejora performance si se optimiza correctamente
+
+---
+
+## Convención de Componentes
+
+### Uso de funciones declaradas (obligatorio)
+
+Todos los componentes deben definirse utilizando **function declarations**.
+
+✔ Correcto:
+
+```jsx
+export default function Home() {
+  return <div>...</div>;
+}
+```
+
+❌ Incorrecto:
+
+```jsx
+const Home = () => {
+  return <div>...</div>;
+};
+```
+
+### Motivo
+
+- Mejor legibilidad
+- Hoisting disponible
+- Consistencia en todo el proyecto
+- Facilita debugging
+
+---
+
+Cualquier componente que no cumpla esta regla debe ser refactorizado.
 
 ---
 
