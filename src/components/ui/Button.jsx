@@ -13,6 +13,8 @@ export default function Button({
   iconPosition = "left",
   HtmlType = "button",
 }) {
+  const isOnlyIcon = iconOnly || (!children && icon);
+
   const colors = {
     primary: {
       solid: "bg-brand-accent hover:bg-brand-accent-hover text-white",
@@ -31,13 +33,13 @@ export default function Button({
   };
 
   const sizes = {
-    sm: iconOnly
+    sm: isOnlyIcon
       ? "h-8 w-8 sm:h-9 sm:w-9 text-xs sm:text-sm"
       : "h-8 px-3 text-xs sm:h-9 sm:px-4 sm:text-sm",
-    md: iconOnly
+    md: isOnlyIcon
       ? "h-9 w-9 sm:h-11 sm:w-11 text-sm sm:text-base"
       : "h-9 px-4 text-sm sm:h-11 sm:px-6 sm:text-base",
-    lg: iconOnly
+    lg: isOnlyIcon
       ? "h-11 w-11 sm:h-13 sm:w-13 text-base sm:text-lg"
       : "h-11 px-5 text-base sm:h-13 sm:px-8 sm:text-lg",
   };
@@ -52,12 +54,13 @@ export default function Button({
     "flex items-center justify-center gap-2 cursor-pointer overflow-hidden font-bold transition-all active:scale-95";
 
   let widthClass = "";
+
   if (fullWidth) {
     widthClass = "w-full";
-  } else if (iconOnly) {
-    widthClass = "";
+  } else if (isOnlyIcon) {
+    widthClass = ""; // 🔥 evita w-full
   } else {
-    widthClass = "w-full sm:w-auto sm:min-w-[120px] sm:max-w-[480px] ";
+    widthClass = "w-full sm:w-auto sm:min-w-[120px] sm:max-w-[480px]";
   }
 
   const disabledStyles = disabled
@@ -79,14 +82,14 @@ export default function Button({
         ${className}
       `}
       aria-label={
-        iconOnly
+        isOnlyIcon
           ? typeof children === "string"
             ? children
             : "Button"
           : undefined
       }
     >
-      {iconOnly ? (
+      {isOnlyIcon ? (
         icon || children
       ) : (
         <>
