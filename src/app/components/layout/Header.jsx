@@ -10,6 +10,7 @@ import { useMemo, useState } from "react";
 import { useCart } from "../providers/CartProvider";
 import { useTheme } from "../providers/ThemeProvider";
 import { useUI } from "../providers/UIProvider";
+import Button from "../ui/Button";
 
 const useActiveRoute = () => {
   const pathname = usePathname();
