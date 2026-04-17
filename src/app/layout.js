@@ -1,20 +1,22 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import Providers from "@/components/providers/Providers";
+import { Inter, Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import Providers from "./components/providers/Providers";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
 
 // TODO: cambiar fuentes por la usadas
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -121,43 +123,31 @@ export const metadata = {
   formatDetection: {
     telephone: false,
   },
-
-  themeColor: "#ffffff",
-
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
 };
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1a2e" },
+  ],
+};
 // LAYOUT
 export default function RootLayout({ children }) {
   return (
     <html
       lang="es-MX"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          (function () {
-            try {
-              var theme = localStorage.getItem('theme');
-              if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-              } else if (!theme) {
-                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (prefersDark) {
-                  document.documentElement.classList.add('dark');
-                }
-              }
-            } catch (e) {}
-          })();
-        `,
-        }}
-      />
       <body className="min-h-full flex flex-col">
-        {/* GOOGLE TAG MANAGER  */}
+        <Script
+          id="theme-script"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `...tu script...`,
+          }}
+        />
+
+        {/* GOOGLE TAG MANAGER */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtm.js?id=GTM-W4JS5W3L"
@@ -171,6 +161,7 @@ export default function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+
         <Providers>
           <Header />
           {children}

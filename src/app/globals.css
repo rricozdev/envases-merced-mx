@@ -1,24 +1,15 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @theme {
+  --font-primary: var(--font-inter);
+  --font-secondary: var(--font-montserrat);
+
   /* ========== COLORES DE MARCA ========== */
   --color-brand-primary: #004d60;
   --color-brand-accent: #00695c;
   --color-brand-accent-hover: #008f85;
 
-  /* colores de modo oscuro */
+  /* DARK */
   --color-txtdark-primary: #e0e0e0;
   --color-txtdark-secondary: #b0b0b0;
   --color-txtdark-brand-primary: #ffffff;
@@ -30,7 +21,7 @@
 
   --color-dark-border: #4c4c6a;
 
-  /* Colores de Modo Claro */
+  /* LIGHT */
   --color-txtligth-primary: #1e3a5f;
   --color-txtligth-brand-primary: #ffffff;
   --color-txtligth-secondary: #666666;
@@ -45,11 +36,14 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: var(--color-bgligth-main);
+  --foreground: var(--color-txtligth-primary);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
 }
 
 body {
