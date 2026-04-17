@@ -123,15 +123,14 @@ export const metadata = {
   formatDetection: {
     telephone: false,
   },
-
-  themeColor: "#ffffff",
-
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
 };
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1a2e" },
+  ],
+};
 // LAYOUT
 export default function RootLayout({ children }) {
   return (
@@ -139,27 +138,16 @@ export default function RootLayout({ children }) {
       lang="es-MX"
       className={`${inter.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          (function () {
-            try {
-              var theme = localStorage.getItem('theme');
-              if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-              } else if (!theme) {
-                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (prefersDark) {
-                  document.documentElement.classList.add('dark');
-                }
-              }
-            } catch (e) {}
-          })();
-        `,
-        }}
-      />
       <body className="min-h-full flex flex-col">
-        {/* GOOGLE TAG MANAGER  */}
+        <Script
+          id="theme-script"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `...tu script...`,
+          }}
+        />
+
+        {/* GOOGLE TAG MANAGER */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtm.js?id=GTM-W4JS5W3L"
@@ -173,6 +161,7 @@ export default function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+
         <Providers>
           <Header />
           {children}
