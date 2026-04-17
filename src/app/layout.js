@@ -1,20 +1,22 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import Providers from "@/components/providers/Providers";
+import { Inter, Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import Providers from "./components/providers/Providers";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
 
 // TODO: cambiar fuentes por la usadas
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -135,7 +137,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="es-MX"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${montserrat.variable} h-full antialiased`}
     >
       <script
         dangerouslySetInnerHTML={{

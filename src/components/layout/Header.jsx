@@ -7,10 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
+import { useUI } from "../providers/UIProvider";
 import { useCart } from "../providers/CartProvider";
 import { useTheme } from "../providers/ThemeProvider";
-import { useUI } from "../providers/UIProvider";
-import Button from "../ui/Button";
 
 const useActiveRoute = () => {
   const pathname = usePathname();
@@ -40,10 +39,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-lg border-b border-light-border dark:border-dark-border bg-bgligth-main/80 dark:bg-bgdark-main/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* ================= HEADER ROW ================= */}
         <div className="flex items-center justify-between h-20">
-          {/* LOGO */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group font-primary">
             <Image
               src={isDark ? "/logo_dark_mode.webp" : "/logo_light_mode.webp"}
               alt="Envases La Merced"
@@ -61,7 +58,6 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* NAV DESKTOP */}
           <nav className="hidden lg:flex items-center gap-10">
             <ul className="flex items-center gap-10">
               {navLinks.map((link, index) => (
@@ -118,7 +114,6 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* ACTIONS */}
           <div className="flex items-center gap-2">
             {/* THEME */}
             <Button
@@ -163,7 +158,6 @@ export default function Header() {
           </div>
         </div>
 
-        {/* ================= MOBILE MENU ================= */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ${
             mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"

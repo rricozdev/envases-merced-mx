@@ -1,11 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { navLinks, sucursales } from "@/utils/constants/navLinks";
+import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
-
-// ICONOS (recomendado)
-import { Phone, MapPin, Mail } from "lucide-react";
-import { sucursales, navLinks } from "@/utils/constants/navLinks";
+import Link from "next/link";
 
 export default function Footer() {
   return (
