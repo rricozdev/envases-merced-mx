@@ -1,5 +1,6 @@
 import ContextSection from "@/components/feature/home/ContextSection";
 import InfoSection from "@/components/feature/home/InfoSection";
+import OpinionSection from "@/components/feature/home/OpinionSection";
 import { organizationSchema } from "@/components/schema/organizationSchema";
 import SchemaMarkup from "@/components/share/SchemaMarkup";
 import Button from "@/components/ui/Button";
@@ -74,6 +75,7 @@ export default function Home() {
         </Hero>
         <ContextSection />
         <InfoSection />
+        <OpinionSection />
       </main>
     </>
   );
