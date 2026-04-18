@@ -1,8 +1,27 @@
-// Probando Tailwind CSS en Next.js 13 con la nueva estructura de carpetas
-
+import ContextSection from "@/components/feature/home/ContextSection";
 import InfoSection from "@/components/feature/home/InfoSection";
 import { organizationSchema } from "@/components/schema/organizationSchema";
 import SchemaMarkup from "@/components/share/SchemaMarkup";
+import Button from "@/components/ui/Button";
+import Hero from "@/components/ui/Hero";
+
+const heroData = {
+  title: (
+    <>
+      <span className="text-brand-accent-hover">
+        El envase PET que tu producto necesita
+      </span>
+      , fabricados y entregados en todo México
+    </>
+  ),
+  description:
+    "Con 5 sucursales estratégicas y una amplia variedad de presentaciones, llevamos el envase exacto que necesitas, rápido y sin intermediarios",
+  srcImg: {
+    desktop: "/assets/bg_img/bg2.webp",
+    mobile: "/assets/bg_img/bg-mobile.webp",
+  },
+  alt: "Imagen de envases de alta calidad para negocios",
+};
 
 export const metadata = {
   title: "Envases PET al Mayoreo en México | Botellas y Frascos | La Merced",
@@ -17,6 +36,43 @@ export default function Home() {
     <>
       <SchemaMarkup schemas={[organizationSchema]} />
       <main className="flex flex-col items-center justify-center min-h-screen bg-bgligth-main dark:bg-bgdark-main">
+        <Hero
+          srcImg={heroData.srcImg}
+          title={heroData.title}
+          description={heroData.description}
+          overlay={false}
+          textPosition="left"
+          type="primary"
+          size="half"
+          className="w-full py-20 bg-bgdark-hero"
+          alt={heroData.alt}
+          imgClassName="object-cover md:object-contain md:object-center w-full h-full"
+        >
+          <div
+            className={
+              "mt-4 sm:mt-4 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto"
+            }
+          >
+            <Button
+              type="primary"
+              variant="solid"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              Solicitar cotización
+            </Button>
+
+            <Button
+              className="w-full sm:w-auto text-white border-white hover:border-brand-primary hover:bg-brand-primary"
+              type="secondary"
+              variant="outline"
+              size="lg"
+            >
+              Ver catalogo
+            </Button>
+          </div>
+        </Hero>
+        <ContextSection />
         <InfoSection />
       </main>
     </>
