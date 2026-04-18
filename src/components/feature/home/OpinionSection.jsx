@@ -17,7 +17,7 @@ const opinions = [
       avatar: "/assets/testimonials/martin.webp",
     },
     opinion:
-      '"El servicio, variedad y calidad que tienen es muy bueno, sin duda seguiré comprándoles. ¡Recomendados!"',
+      '"Excelente servicio y muy buena variedad. Siempre encuentro lo que necesito y la calidad es constante. Sin duda seguiré comprando con ellos."',
   },
   {
     author: {
@@ -26,7 +26,7 @@ const opinions = [
       avatar: "/assets/testimonials/maria.webp",
     },
     opinion:
-      '"Entregan rápido y tienen buenas paqueterías con precios accesibles. La calidad de los envases es excelente. Muy recomendados."',
+      '"Las entregas son rápidas y los precios bastante competitivos. Me ayudaron a reducir costos sin sacrificar la calidad de mis productos."',
   },
   {
     author: {
@@ -35,7 +35,7 @@ const opinions = [
       avatar: "/assets/testimonials/elias.webp",
     },
     opinion:
-      '"Empecé comprándoles menudeo y ahora que he crecido me dieron precios especiales y ya puedo revender. Excelente atención y calidad."',
+      '"Comencé comprando al detal y a medida que crecí me ofrecieron mejores condiciones. Es un proveedor confiable para escalar mi negocio."',
   },
   {
     author: {
@@ -44,7 +44,7 @@ const opinions = [
       avatar: "/assets/testimonials/daniela.webp",
     },
     opinion:
-      '"La calidad de los envases es excepcional y el servicio al cliente es de primera. Siempre entregan a tiempo y nos ayudan a encontrar la solución perfecta para nuestros productos."',
+      '"Destaco mucho la asesoría. No solo venden, también te orientan para elegir el envase ideal según tu producto. Eso marca la diferencia."',
   },
   {
     author: {
@@ -53,7 +53,7 @@ const opinions = [
       avatar: "/assets/testimonials/ricardo.webp",
     },
     opinion:
-      '"La calidad de los envases es excepcional y el servicio al cliente es de primera. Siempre entregan a tiempo y nos ayudan a encontrar la solución perfecta para nuestros productos."',
+      '"Siempre cumplen con los tiempos de entrega y la calidad es consistente en cada pedido. Es un aliado clave para mantener mi operación estable."',
   },
 ];
 
@@ -61,9 +61,14 @@ export default function OpinionSection() {
   return (
     <Container>
       <ContentSection
-        eyebrow="Testimonios"
-        title="¿Qué opinan nuestros clientes?"
-        description=""
+        eyebrow="Clientes que ya confían en nosotros"
+        title={
+          <>
+            ¿Por qué cada vez más{" "}
+            <span className="text-brand-accent">negocios</span> nos eligen?
+          </>
+        }
+        description="Calidad, precio y cumplimiento. Descubre por qué cada vez más negocios confían en nuestros envases."
       >
         <Swiper
           spaceBetween={20}

@@ -26,7 +26,7 @@ export default function ContentSection({
           {title}
         </h2>
 
-        <p className="mt-4 text-base sm:text-lg leading-relaxed text-txtligth-secondary dark:text-txtdark-secondary font-secondary font-semibold">
+        <p className="mt-4 text-base sm:text-lg leading-relaxed text-txtligth-secondary dark:text-txtdark-secondary font-secondary font-medium">
           {description}
         </p>
       </header>
