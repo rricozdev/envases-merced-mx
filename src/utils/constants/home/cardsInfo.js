@@ -1,4 +1,7 @@
 // TODO: Agregar los íconos correspondientes a cada valor en el array de objetos
+
+import { Boxes, DollarSign, Factory, Package, Truck } from "lucide-react";
+
 const cardsInfo = [
   {
     id: 1,
@@ -8,7 +11,7 @@ const cardsInfo = [
     description:
       "Amplia variedad de modelos de envases PET listos para entrega inmediata. Sin esperas, sin sustituciones.",
     detail: "✔ Stock disponible hoy",
-    // icon: ShoppingBagIcon,
+    icon: Package,
   },
   {
     id: 2,
@@ -18,7 +21,7 @@ const cardsInfo = [
     description:
       "Somos fabricantes directos. Cada envase pasa por control de calidad riguroso antes de llegar a ti.",
     detail: "✔ Sin intermediarios",
-    // icon: PrecisionManufacturingIcon,
+    icon: Factory,
   },
   {
     id: 5,
@@ -28,7 +31,7 @@ const cardsInfo = [
     description:
       "Nuestros precios hablan solos, compruébalo tú mismo con una cotización sin compromiso.",
     detail: "✔ Transparente y competitivo",
-    // icon: SavingsRoundedIcon,
+    icon: DollarSign,
   },
   {
     id: 3,
@@ -38,7 +41,7 @@ const cardsInfo = [
     description:
       "5 sucursales estratégicas en todo México para entregarte rápido y sin complicaciones.",
     detail: "✔ Cobertura nacional",
-    // icon: LocalShippingIcon,
+    icon: Truck,
   },
   {
     id: 4,
@@ -46,9 +49,9 @@ const cardsInfo = [
     color: "primary",
     title: "Para cada industria",
     description:
-      "Agua, limpieza, cosméticos, farmacéuticos, alimentos, hotelería y más. Si tu producto necesita un envase lo tenemos",
+      "Agua, limpieza, cosméticos, farmacéuticos, alimentos, hotelería y más.",
     detail: "✔ +8 industrias atendidas",
-    // icon: ChecklistRoundedIcon,
+    icon: Boxes,
   },
 ];
 
