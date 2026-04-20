@@ -16,8 +16,7 @@ const useActiveRoute = () => {
   const pathname = usePathname();
 
   const isActive = (path) => path && pathname === path;
-  const isSubActive = (subPath) =>
-    pathname.startsWith(`/sucursales/${subPath}`);
+  const isSubActive = (subPath) => pathname === `/${subPath}`;
 
   return { pathname, isActive, isSubActive };
 };
@@ -73,7 +72,9 @@ export default function Header() {
                     <>
                       <button
                         className={`flex items-center gap-1 text-base font-primary font-semibold transition ${
-                          pathname.startsWith("/sucursales")
+                          link.submenu?.some(
+                            (item) => pathname === `/${item.path}`,
+                          )
                             ? "text-brand-accent-hover"
                             : "hover:text-brand-accent-hover text-brand-primary dark:text-txtdark-primary"
                         }`}
@@ -89,7 +90,7 @@ export default function Header() {
                         {link.submenu.map((item, idx) => (
                           <li key={idx}>
                             <Link
-                              href={`/sucursales/${item.path}`}
+                              href={`/${item.path}`}
                               className={`block px-4 py-3 text-sm font-primary font-semibold transition ${
                                 isSubActive(item.path)
                                   ? "text-brand-accent"
@@ -220,7 +221,7 @@ export default function Header() {
                         {link.submenu.map((item, idx) => (
                           <li key={idx}>
                             <Link
-                              href={`/sucursales/${item.path}`}
+                              href={`/${item.path}`}
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-1.5 px-2 rounded-md text-sm hover:bg-brand-accent/10 transition-colors"
                             >

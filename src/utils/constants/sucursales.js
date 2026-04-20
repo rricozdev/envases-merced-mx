@@ -4,6 +4,11 @@ export const sucursalesData = [
   {
     name: "CDMX",
     path: "cdmx",
+    seo: {
+      title: "Envases PET en CDMX | Botellas y Frascos | La Merced",
+      description:
+        "Compra envases PET en CDMX. Botellas, frascos y tapas al mayoreo con entrega rápida desde nuestra sucursal en Azafrán 380, Iztacalco.",
+    },
     facebook: "Envases La Merced CDMX",
     facebookUrl: "https://www.facebook.com/profile.php?id=100071729623298",
     address:
@@ -22,6 +27,11 @@ export const sucursalesData = [
   {
     name: "Puebla",
     path: "puebla",
+    seo: {
+      title: "Envases PET en Puebla | Botellas y Frascos | La Merced",
+      description:
+        "Compra envases PET en Puebla. Botellas, frascos y tapas al mayoreo con entrega inmediata desde nuestra sucursal en Miguel Hidalgo 6155.",
+    },
     facebook: "Envases La Merced Puebla",
     facebookUrl: "https://www.facebook.com/envaseslamercerdpuebla",
     address: "Miguel Hidalgo 6155, Col. El Patrimonio, CP 72450, Puebla, Pue",
@@ -39,6 +49,11 @@ export const sucursalesData = [
   {
     name: "Veracruz",
     path: "veracruz",
+    seo: {
+      title: "Envases PET en Veracruz | Botellas y Frascos | La Merced",
+      description:
+        "Compra envases PET en Veracruz. Botellas, frascos y tapas al mayoreo disponibles en nuestra sucursal en Igualdad 1398, entrega rápida.",
+    },
     facebook: "Envases La Merced Veracruz",
     facebookUrl: "https://www.facebook.com/envaseslamercedveracruz",
     address:
@@ -57,6 +72,11 @@ export const sucursalesData = [
   {
     name: "Neza",
     path: "neza",
+    seo: {
+      title: "Envases PET en Neza | Botellas y Frascos | La Merced",
+      description:
+        "Compra envases PET en Neza. Botellas, frascos y tapas al mayoreo con atención directa en nuestra sucursal en Vicente Villada 744.",
+    },
     facebook: "Envases La Merced Neza",
     facebookUrl: "https://www.facebook.com/profile.php?id=61551059331966",
     address: "Vicente Villada #744, Nezahualcóyotl, México, 57000",
@@ -74,6 +94,11 @@ export const sucursalesData = [
   {
     name: "Querétaro",
     path: "queretaro",
+    seo: {
+      title: "Envases PET en Querétaro | Botellas y Frascos | La Merced",
+      description:
+        "Compra envases PET en Querétaro. Botellas, frascos y tapas al mayoreo con disponibilidad inmediata en nuestra sucursal en George Washington 312.",
+    },
     facebook: "Envases La Merced Querétaro",
     facebookUrl: "https://www.facebook.com/profile.php?id=61577114579391",
     address:
