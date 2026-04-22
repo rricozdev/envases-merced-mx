@@ -1,12 +1,3 @@
-/**
- * 🧩 VALUE CARD
- *
- * Componente para mostrar un valor institucional.
- * Recibe icono como componente, título y descripción.
- *
- * ⚠️ No contiene lógica de negocio, solo presentación.
- */
-
 export default function ValueCard({
   icon: Icon,
   title,
@@ -16,34 +7,39 @@ export default function ValueCard({
   return (
     <article
       className={`
-        flex flex-col gap-5 items-center text-center p-8 rounded-xl shadow-lg transition-transform
+        group relative flex flex-col gap-5 items-center text-center p-8 rounded-2xl
+        transition-all duration-300
 
-        bg-[var(--color-bgligth-main)]
-        dark:bg-[var(--color-bgdark-main)]
+        /* 🎨 FONDO MEJORADO */
+        bg-white/70 dark:bg-bgdark-main/60
+        backdrop-blur-md
 
-        border
-        border-[var(--color-light-border)]
-        dark:border-[var(--color-dark-border)]
+        /* 🧱 BORDE MÁS VISIBLE */
+        border border-light-border/50 dark:border-dark-border/50
+
+        /* 🌫 SOMBRA MÁS SUAVE Y PROFUNDA */
+        shadow-md hover:shadow-xl
 
         ${
           hover
             ? `
-              hover:-translate-y-1
-              hover:border-[var(--color-brand-accent)]
-              dark:hover:bg-[var(--color-bgdark-secondary)]
-              hover:bg-[var(--color-bgligth-secondary)]
+              hover:-translate-y-2
+              hover:border-color-brand-accent/40
             `
             : ""
         }
       `}
     >
-      {/* ICONO */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-linear-to-br from-brand-accent/5 to-transparent pointer-events-none" />
+
       <div
         className="
           flex items-center justify-center size-16 rounded-full
+          bg-brand-accent/10
+          text-brand-accent
 
-          bg-[var(--color-brand-accent)]/10
-          text-[var(--color-brand-accent)]
+          transition-transform duration-300
+          group-hover:scale-110
         "
       >
         <Icon />
@@ -52,10 +48,10 @@ export default function ValueCard({
       {/* TÍTULO */}
       <h3
         className="
-          text-xl font-bold
+          text-xl font-semibold
 
-          text-[var(--color-txtligth-primary)]
-          dark:text-[var(--color-txtdark-primary)]
+          text-color-txtligth-primary
+          dark:text-color-txtdark-primary
         "
       >
         {title}
@@ -66,8 +62,8 @@ export default function ValueCard({
         className="
           text-base leading-relaxed
 
-          text-[var(--color-txtligth-secondary)]
-          dark:text-[var(--color-txtdark-secondary)]
+          text-color-txtligth-secondary
+          dark:text-color-txtdark-secondary
         "
       >
         {description}

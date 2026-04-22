@@ -85,7 +85,9 @@ export default async function CiudadPage({ params }) {
   return (
     <>
       <SchemaMarkup schemas={[branchesSchema(sucursal)]} />
-      <SucursalView sucursal={sucursal} />
+      <main className="bg-bgligth-secondary dark:bg-bgdark-main">
+        <SucursalView sucursal={sucursal} />
+      </main>
     </>
   );
 }
