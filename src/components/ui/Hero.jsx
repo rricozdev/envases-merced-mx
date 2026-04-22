@@ -15,7 +15,7 @@ export default function Hero({
 }) {
   const heroTypes = {
     primary: "min-h-[calc(100vh-5rem)]",
-    secondary: "min-h-[330px] py-12",
+    secondary: "min-h-[330px] pt-20 pb-10",
     compact: "min-h-[220px] py-8",
   };
 
@@ -59,12 +59,14 @@ export default function Hero({
 
       {/* Contenido */}
       <div className="relative z-20 flex items-center h-full">
-        <div className="container mx-auto px-4 sm:px-6">
+        <div
+          className={`px-4 sm:px-6 ${type === "secondary" ? "w-full" : "container mx-auto"}`}
+        >
           <div
             className={`
               flex flex-col gap-6
               ${alignment[textPosition]}
-              ${width[size]}
+              ${type === "secondary" ? "w-full" : width[size]}
             `}
           >
             <h1
