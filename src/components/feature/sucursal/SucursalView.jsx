@@ -25,7 +25,8 @@ const SucursalView = ({ sucursal }) => {
 
         {/* Título */}
         <h1 className="text-4xl md:text-5xl font-black text-corporate-blue dark:text-txtdark-brand-primary mb-3">
-          Sucursal {sucursal.name}
+          Sucursal
+          <span className="text-brand-accent-hover"> {sucursal.name}</span>
         </h1>
         <p className="text-gray-500 dark:text-txtdark-secondary mb-10">
           Encuentra nuestra ubicación, horarios y ponte en contacto con

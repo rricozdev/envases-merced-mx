@@ -5,7 +5,7 @@ export const sucursalesData = [
     name: "CDMX",
     path: "cdmx",
     seo: {
-      title: "Envases PET en CDMX | Botellas y Frascos | La Merced",
+      title: "Envases PET en CDMX | Botellas y Frascos",
       description:
         "Compra envases PET en CDMX. Botellas, frascos y tapas al mayoreo con entrega rápida desde nuestra sucursal en Azafrán 380, Iztacalco.",
     },
@@ -28,7 +28,7 @@ export const sucursalesData = [
     name: "Puebla",
     path: "puebla",
     seo: {
-      title: "Envases PET en Puebla | Botellas y Frascos | La Merced",
+      title: "Envases PET en Puebla | Botellas y Frascos",
       description:
         "Compra envases PET en Puebla. Botellas, frascos y tapas al mayoreo con entrega inmediata desde nuestra sucursal en Miguel Hidalgo 6155.",
     },
@@ -50,7 +50,7 @@ export const sucursalesData = [
     name: "Veracruz",
     path: "veracruz",
     seo: {
-      title: "Envases PET en Veracruz | Botellas y Frascos | La Merced",
+      title: "Envases PET en Veracruz | Botellas y Frascos",
       description:
         "Compra envases PET en Veracruz. Botellas, frascos y tapas al mayoreo disponibles en nuestra sucursal en Igualdad 1398, entrega rápida.",
     },
@@ -73,7 +73,7 @@ export const sucursalesData = [
     name: "Neza",
     path: "neza",
     seo: {
-      title: "Envases PET en Neza | Botellas y Frascos | La Merced",
+      title: "Envases PET en Neza | Botellas y Frascos",
       description:
         "Compra envases PET en Neza. Botellas, frascos y tapas al mayoreo con atención directa en nuestra sucursal en Vicente Villada 744.",
     },
@@ -95,7 +95,7 @@ export const sucursalesData = [
     name: "Querétaro",
     path: "queretaro",
     seo: {
-      title: "Envases PET en Querétaro | Botellas y Frascos | La Merced",
+      title: "Envases PET en Querétaro | Botellas y Frascos",
       description:
         "Compra envases PET en Querétaro. Botellas, frascos y tapas al mayoreo con disponibilidad inmediata en nuestra sucursal en George Washington 312.",
     },
