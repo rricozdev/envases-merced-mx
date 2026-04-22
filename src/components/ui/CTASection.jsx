@@ -38,12 +38,7 @@ export default function CTASection({ title, description }) {
   return (
     <section
       className="
-        mt-16 p-10 rounded-2xl text-center
-
-        bg-[var(--color-brand-primary)]
-        text-[var(--color-txtligth-brand-primary)]
-
-        dark:bg-[var(--color-bgdark-hero)]
+        p-10 rounded-2xl text-center bg-brand-primary text-txtligth-brand-primary  dark:bg-bgdark-hero
       "
     >
       <div className="flex flex-col items-center gap-6 max-w-2xl mx-auto">
@@ -54,7 +49,7 @@ export default function CTASection({ title, description }) {
         <p
           className="
             text-base sm:text-lg leading-relaxed
-            text-[var(--color-txtligth-brand-primary)]/90
+            text-txtligth-brand-primary/90
           "
         >
           {description}
@@ -64,12 +59,7 @@ export default function CTASection({ title, description }) {
         <button
           onClick={handleClick}
           className="
-            mt-4 px-6 py-3 rounded-lg font-semibold transition
-
-            bg-[var(--color-brand-accent)]
-            text-[var(--color-txtligth-brand-primary)]
-
-            hover:bg-[var(--color-brand-accent-hover)]
+            mt-4 px-6 py-3 rounded-lg font-semibold transition bg-brand-accent text-txtligth-brand-primary hover:bg-brand-accent-hover
           "
         >
           Contáctanos
