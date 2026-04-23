@@ -1,6 +1,6 @@
+import Button from "@/components/ui/Button";
+import { EtiquetaProducto } from "@/utils/constants/products/listProducts";
 import { CirclePlus } from "lucide-react";
-import { EtiquetaProducto } from "../../../utils/constants/products/listProducts";
-import Button from "../../UI/Button";
 
 export default function ProductCard({ product, onQuote }) {
   const etiquetaStyles = {
