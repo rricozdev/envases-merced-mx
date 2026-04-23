@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/UI/Button";
+import Button from "@/components/ui/Button";
 import {
   CategoriaProducto,
   CodigoRosca,
@@ -8,8 +8,8 @@ import {
   EtiquetaProducto,
 } from "@/utils/constants/products/listProducts";
 import { motion } from "framer-motion";
-import SearchFilter from "./SearchFilter";
 import CategoryFilter from "./CategoryFilter";
+import SearchFilter from "./SearchFilter";
 
 const FILTER_GROUPS = [
   {
