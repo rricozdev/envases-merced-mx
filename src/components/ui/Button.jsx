@@ -1,6 +1,8 @@
+"use client";
+
 export default function Button({
   className = "",
-  type = "primary",
+  type = "primary", // 🔥 antes "type"
   variant = "solid",
   size = "md",
   shape = "rounded",
@@ -11,85 +13,83 @@ export default function Button({
   disabled = false,
   icon,
   iconPosition = "left",
-  HtmlType = "button",
+  htmlType = "button", // 🔥 estándar
+  loading = false,
+  ariaLabel,
 }) {
   const isOnlyIcon = iconOnly || (!children && icon);
 
+  // 🎨 COLORS
   const colors = {
     primary: {
       solid: "bg-brand-accent hover:bg-brand-accent-hover text-white",
       outline:
         "border-2 border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white",
       ghost:
-        "text-brand-accent hover:bg-brand-accent/10 dark:hover:bg-white-300/10 dark:hover:text-white/90",
+        "text-brand-accent hover:bg-brand-accent/10 dark:hover:bg-white/10",
     },
     secondary: {
       solid: "bg-brand-primary hover:opacity-90 text-white",
       outline:
-        "border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white dark:text-white dark:border-white/80 dark:hover:border-brand-primary",
+        "border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white dark:text-white dark:border-white/80",
       ghost:
-        "text-brand-primary hover:bg-brand-primary/10 dark:text-white dark:hover:bg-white/10 dark:hover:text-white/90",
+        "text-brand-primary hover:bg-brand-primary/10 dark:text-white dark:hover:bg-white/10",
+    },
+    danger: {
+      solid: "bg-red-500 hover:bg-red-600 text-white",
+      outline:
+        "border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white",
+      ghost: "text-red-500 hover:bg-red-500/10",
     },
   };
 
+  // 📏 SIZES
   const sizes = {
-    sm: isOnlyIcon
-      ? "h-8 w-8 sm:h-9 sm:w-9 text-xs sm:text-sm"
-      : "h-8 px-3 text-xs sm:h-9 sm:px-4 sm:text-sm",
-    md: isOnlyIcon
-      ? "h-9 w-9 sm:h-11 sm:w-11 text-sm sm:text-base"
-      : "h-9 px-4 text-sm sm:h-11 sm:px-6 sm:text-base",
-    lg: isOnlyIcon
-      ? "h-11 w-11 sm:h-13 sm:w-13 text-base sm:text-lg"
-      : "h-11 px-5 text-base sm:h-13 sm:px-8 sm:text-lg",
+    sm: isOnlyIcon ? "h-8 w-8 text-xs" : "h-8 px-3 text-xs",
+    md: isOnlyIcon ? "h-10 w-10 text-sm" : "h-10 px-4 text-sm",
+    lg: isOnlyIcon ? "h-12 w-12 text-base" : "h-12 px-6 text-base",
   };
 
+  // 🔲 SHAPES
   const shapes = {
     rounded: "rounded-lg",
     square: "rounded-none",
     circle: "rounded-full",
   };
 
+  // 🧱 BASE
   const baseStyles =
-    "flex items-center justify-center gap-2 cursor-pointer overflow-hidden font-bold transition-all active:scale-95";
+    "inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 " +
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 " +
+    "disabled:opacity-50 disabled:pointer-events-none";
 
+  // 📐 WIDTH
   let widthClass = "";
+  if (fullWidth) widthClass = "w-full";
+  else if (!isOnlyIcon) widthClass = "w-full sm:w-auto";
 
-  if (fullWidth) {
-    widthClass = "w-full";
-  } else if (isOnlyIcon) {
-    widthClass = ""; // 🔥 evita w-full
-  } else {
-    widthClass = "w-full sm:w-auto sm:min-w-[120px] sm:max-w-[480px]";
-  }
-
-  const disabledStyles = disabled
-    ? "opacity-50 cursor-not-allowed pointer-events-none"
-    : "";
+  // ⏳ LOADING STATE
+  const loadingStyles = loading ? "pointer-events-none opacity-70" : "";
 
   return (
     <button
-      type={HtmlType}
+      type={htmlType}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || loading}
       className={`
         ${baseStyles}
         ${colors[type][variant]}
         ${sizes[size]}
         ${shapes[shape]}
         ${widthClass}
-        ${disabledStyles}
+        ${loadingStyles}
         ${className}
       `}
-      aria-label={
-        isOnlyIcon
-          ? typeof children === "string"
-            ? children
-            : "Button"
-          : undefined
-      }
+      aria-label={isOnlyIcon ? ariaLabel || "Botón" : undefined}
     >
-      {isOnlyIcon ? (
+      {loading ? (
+        <span className="animate-spin">⏳</span>
+      ) : isOnlyIcon ? (
         icon || children
       ) : (
         <>

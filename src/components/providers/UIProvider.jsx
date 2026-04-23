@@ -29,6 +29,8 @@ export function UIProvider({ children }) {
     setOverlays({});
   }, []);
 
+  const isOpen = useCallback((key) => Boolean(overlays[key]));
+
   const value = useMemo(
     () => ({
       overlays,
@@ -36,8 +38,9 @@ export function UIProvider({ children }) {
       close,
       toggle,
       closeAll,
+      isOpen,
     }),
-    [overlays, open, close, toggle, closeAll],
+    [overlays, open, close, toggle, closeAll, isOpen],
   );
 
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
