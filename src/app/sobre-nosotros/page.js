@@ -8,12 +8,12 @@ export const metadata = {
   // Títulos optimizados
   title: "Sobre Nosotros - Soluciones en Envases PET",
   description:
-    "Descubre quiénes somos. Envases la Merced ofrece soluciones premium en envases PET para empresas de Colombia. Misión, visión y presencia nacional.",
+    "Descubre quiénes somos. Envases la Merced ofrece soluciones premium en envases PET para empresas de Mexico. Misión, visión y presencia nacional.",
 
   // Keywords (usa en atributos o en schema)
   keywords: [
     "envases PET",
-    "envases plásticos Colombia",
+    "envases plásticos Mexico",
     "soluciones de empaque",
     "empresa envases",
     "sobre nosotros",
@@ -23,20 +23,20 @@ export const metadata = {
   // Open Graph (Social Media)
   openGraph: {
     type: "website",
-    url: "https://www.tudominio.com/about",
+    url: "https://envaseslamerced.mx/sobre-nosotros",
     title: "Sobre Nosotros | Envases la Merced - Soluciones en Envases PET",
     description:
-      "Descubre nuestra misión, visión y valores. Presencia en múltiples ciudades de Colombia.",
+      "Descubre nuestra misión, visión y valores. Presencia en múltiples ciudades de Mexico",
     images: [
       {
-        url: "https://www.tudominio.com/images/about-og.jpg",
+        url: " ",
         width: 1200,
         height: 630,
         alt: "Envases la Merced - Sobre Nosotros",
       },
     ],
     siteName: "Envases la Merced",
-    locale: "es_CO",
+    locale: "es_MX",
   },
 
   // Twitter Card
@@ -44,16 +44,16 @@ export const metadata = {
     card: "summary_large_image",
     title: "Sobre Nosotros | Envases la Merced",
     description:
-      "Soluciones premium en envases PET. Presencia nacional en Colombia.",
-    images: ["https://www.tudominio.com/images/about-og.jpg"],
+      "Soluciones premium en envases PET. Presencia nacional en todo Mexico",
+    images: [" "],
   },
 
   // Otros meta tags
   robots: "index, follow",
-  canonical: "https://www.tudominio.com/about",
+  canonical: "https://envaseslamerced.mx/",
   language: "es",
   alternates: {
-    canonical: "https://www.tudominio.com/about",
+    canonical: "https://envaseslamerced.mx/",
   },
 };
 
