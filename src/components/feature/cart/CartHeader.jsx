@@ -24,7 +24,7 @@ export default function CartHeader() {
         variant="outline"
         size="sm"
         iconOnly
-        className=" shrink-0 dark:text-txtdark-primary text-txtligth-primary dark:border-txtdark-primary  dark:hover:bg-txtdark-primary  dark:hover:text-txtligth-primary"
+        className=" cursor-pointer w-20 shrink-0 dark:text-txtdark-primary text-txtligth-primary dark:border-txtdark-primary  dark:hover:bg-txtdark-primary  dark:hover:text-txtligth-primary"
         icon={<X size={20} />}
         onClick={() => close(OVERLAYS.CART)}
       />

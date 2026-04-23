@@ -4,6 +4,7 @@ import Providers from "@/components/providers/Providers";
 import { Inter, Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import CartDrawer from "@/components/feature/cart/CartDrawer";
 
 // TODO: cambiar fuentes por la usadas
 const inter = Inter({
@@ -164,6 +165,7 @@ export default function RootLayout({ children }) {
 
         <Providers>
           <Header />
+          <CartDrawer />
           {children}
           <Footer />
         </Providers>
