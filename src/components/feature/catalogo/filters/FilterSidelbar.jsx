@@ -45,14 +45,14 @@ export default function FilterSidebar({ filters, onFilterChange, onClearAll }) {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="sticky top-24 space-y-8"
+        className="sticky top-24 space-y-8 max-h-[calc(100vh-6rem)] overflow-y-auto pr-2"
       >
         {/* Header con título y botón limpiar */}
         <header className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">Filtros</h2>
           <Button
             size="sm"
-            variant="outline"
+            variant="solid"
             onClick={onClearAll}
             aria-label="Limpiar todos los filtros"
             className="max-w-28"

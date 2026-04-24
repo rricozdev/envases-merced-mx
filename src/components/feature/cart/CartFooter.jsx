@@ -52,7 +52,7 @@ export default function CartFooter() {
 
           <Button
             size="sm"
-            variant="outline"
+            variant="solid"
             onClick={handleClickSolicitarCotizacion}
           >
             {isOpen ? "Cerrar Sucursales" : "Pedir Cotización"}

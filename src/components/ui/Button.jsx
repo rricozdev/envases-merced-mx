@@ -24,7 +24,7 @@ export default function Button({
     primary: {
       solid: "bg-brand-accent hover:bg-brand-accent-hover text-white",
       outline:
-        "border-2 border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white",
+        "border-2 border-brand-accent text-white font-bold hover:bg-brand-accent hover:text-white",
       ghost:
         "text-brand-accent hover:bg-brand-accent/10 dark:hover:bg-white/10",
     },
@@ -84,6 +84,8 @@ export default function Button({
         ${widthClass}
         ${loadingStyles}
         ${className}
+        font-primary
+        cursor-pointer
       `}
       aria-label={isOnlyIcon ? ariaLabel || "Botón" : undefined}
     >
