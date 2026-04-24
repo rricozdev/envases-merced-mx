@@ -1,9 +1,9 @@
+import { ContentBtnHero } from "@/components/feature/home/ContentBtnHero";
 import ContextSection from "@/components/feature/home/ContextSection";
 import InfoSection from "@/components/feature/home/InfoSection";
 import OpinionSection from "@/components/feature/home/OpinionSection";
 import { organizationSchema } from "@/components/schema/organizationSchema";
 import SchemaMarkup from "@/components/share/SchemaMarkup";
-import Button from "@/components/ui/Button";
 import Hero from "@/components/ui/Hero";
 
 const heroData = {
@@ -54,23 +54,7 @@ export default function Home() {
               "mt-4 sm:mt-4 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto"
             }
           >
-            <Button
-              type="primary"
-              variant="solid"
-              size="lg"
-              className="w-full sm:w-auto"
-            >
-              Solicitar cotización
-            </Button>
-
-            <Button
-              className="w-full sm:w-auto text-white border-white hover:border-brand-primary hover:bg-brand-primary"
-              type="secondary"
-              variant="outline"
-              size="lg"
-            >
-              Ver catalogo
-            </Button>
+            <ContentBtnHero />
           </div>
         </Hero>
         <ContextSection />
