@@ -70,7 +70,7 @@ export default function Footer() {
               {sucursales.map((sucursal) => (
                 <li key={sucursal.name}>
                   <Link
-                    href={`/sucursales/${sucursal.path}`}
+                    href={`/${sucursal.path}`}
                     className="hover:text-brand-accent-hover transition-colors"
                   >
                     {sucursal.name}
