@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "react-toastify";
 import useContactForm from "@/components/hooks/useContactForm";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/form/Input";
@@ -22,11 +23,21 @@ export default function ContactForm() {
 
       <form
         className="flex flex-col gap-6"
-        onSubmit={handleSubmit((data) =>
-          onSubmit({
-            ...data,
-            branch: selectedBranch,
-          }),
+        // onSubmit={handleSubmit((data) =>
+        //   onSubmit({
+        //     ...data,
+        //     branch: selectedBranch,
+        //   }),
+        // )}
+        onSubmit={handleSubmit(
+          (data) =>
+            onSubmit({
+              ...data,
+              branch: selectedBranch,
+            }),
+          () => {
+            toast.error("Corrige los campos del formulario");
+          },
         )}
         noValidate
       >
@@ -101,7 +112,7 @@ export default function ContactForm() {
           </p>
 
           <Button
-            HtmlType="submit"
+            htmlType="submit"
             type="primary"
             variant="solid"
             className="h-12 px-6 rounded-lg font-bold disabled:opacity-50"

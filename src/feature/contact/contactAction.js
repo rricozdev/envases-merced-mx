@@ -1,7 +1,9 @@
+// Importamos la librería oficial de EmailJS
 import emailjs from "@emailjs/browser";
 
 /**
- * Envía un correo con la información del formulario de contacto
+ * Envía la información del formulario de contacto
+ * mediante EmailJS.
  */
 export const sendContactAction = async ({
   name,
@@ -12,6 +14,17 @@ export const sendContactAction = async ({
   branch,
   to_email,
 }) => {
+  // Variables de entorno
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+  // Validación preventiva
+  if (!serviceId || !templateId || !publicKey) {
+    throw new Error("Faltan variables de entorno de EmailJS");
+  }
+
+  // Parámetros esperados por el template
   const templateParams = {
     from_name: name,
     from_email: email,
@@ -22,15 +35,6 @@ export const sendContactAction = async ({
     to_email,
   };
 
-  try {
-    return await emailjs.send(
-      "service_qbqsolr",
-      "template_fnjow19",
-      templateParams,
-      "hED2TuRfdGVwaZgb0",
-    );
-  } catch (error) {
-    console.error("Error enviando el email:", error);
-    throw error;
-  }
+  // Envío del correo
+  return await emailjs.send(serviceId, templateId, templateParams, publicKey);
 };
