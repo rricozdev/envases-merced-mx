@@ -4,7 +4,7 @@ import InfoSection from "@/components/feature/home/InfoSection";
 import OpinionSection from "@/components/feature/home/OpinionSection";
 import { organizationSchema } from "@/components/schema/organizationSchema";
 import SchemaMarkup from "@/components/share/SchemaMarkup";
-import Hero from "@/components/ui/Hero";
+import AnimatedHero from "@/components/feature/home/AnimatedHero";
 
 const heroData = {
   title: (
@@ -37,7 +37,7 @@ export default function Home() {
     <>
       <SchemaMarkup schemas={[organizationSchema]} />
       <main className="flex flex-col items-center justify-center min-h-screen bg-bgligth-main dark:bg-bgdark-main">
-        <Hero
+        <AnimatedHero
           srcImg={heroData.srcImg}
           title={heroData.title}
           description={heroData.description}
@@ -56,7 +56,7 @@ export default function Home() {
           >
             <ContentBtnHero />
           </div>
-        </Hero>
+        </AnimatedHero>
         <ContextSection />
         <InfoSection />
         <OpinionSection />
