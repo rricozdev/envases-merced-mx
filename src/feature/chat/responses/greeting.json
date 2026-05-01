@@ -1,0 +1,22 @@
+{
+  "responses": [
+    {
+      "triggers": [
+        "hola",
+        "hello",
+        "hi",
+        "hey",
+        "shalom",
+        "buenas",
+        "buenos dias",
+        "buenas tardes",
+        "buenas noches",
+        "saludos",
+        "que tal",
+        "como estas"
+      ],
+      "response": "¡Hola! 👋 Bienvenido a Envases La Merced.\n\nPodemos ayudarte con:\n• Productos\n• Sucursales\n• Cotización\n\n¿Qué necesitas?",
+      "type": "greeting"
+    }
+  ]
+}

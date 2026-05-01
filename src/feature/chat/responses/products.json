@@ -1,0 +1,89 @@
+{
+  "responses": [
+    {
+      "triggers": [
+        "productos",
+        "producto",
+        "ver productos",
+        "que venden",
+        "que ofrecen"
+      ],
+      "response": "Contamos con envases PET para distintas industrias:\n\n• Bebidas\n• Alimentos\n• Cosméticos\n• Farmacéuticos\n• Limpieza\n\n¿Qué tipo de producto necesitas envasar?",
+      "type": "products_intro"
+    },
+
+    {
+      "triggers": [
+        "farmacia",
+        "farmaceutico",
+        "farmaceuticos",
+        "medicina",
+        "medicamento"
+      ],
+      "response": "Perfecto.\n\nContamos con envases PET para productos farmacéuticos.\n\n¿Tu producto es:\n\n• Jarabe\n• Pastillas / cápsulas\n• Otro tipo?",
+      "type": "category_pharma"
+    },
+
+    {
+      "triggers": ["pastillas", "capsulas", "cápsulas", "tabletas"],
+      "response": "Perfecto.\n\nPara pastillas o cápsulas manejamos envases PET resistentes, ideales para sólidos.\n\nPodemos ayudarte con capacidad, tapa y disponibilidad.\n\n¿Te gustaría cotizar o ver opciones?",
+      "type": "pharma_solids"
+    },
+
+    {
+      "triggers": ["jarabe", "jarabes", "liquido", "líquido"],
+      "response": "Perfecto.\n\nPara jarabes manejamos envases PET seguros y confiables.\n\nSon ideales para líquidos farmacéuticos.\n\n¿Qué capacidad aproximada necesitas?",
+      "type": "pharma_liquids"
+    },
+
+    {
+      "triggers": ["bebidas", "jugo", "refresco", "agua"],
+      "response": "Perfecto.\n\nTenemos botellas PET para bebidas como jugos, agua y refrescos.\n\nManejamos desde presentaciones personales hasta 1.5L.\n\n¿Qué tamaño buscas?",
+      "type": "products_drinks"
+    },
+
+    {
+      "triggers": ["cosmeticos", "cosméticos", "shampoo", "champu"],
+      "response": "Claro.\n\nTenemos envases PET para shampoo y cosméticos líquidos.\n\nSon ligeros, resistentes y funcionales.\n\n¿Qué capacidad necesitas?",
+      "type": "products_cosmetics"
+    },
+
+    {
+      "triggers": ["limpieza", "detergente", "desinfectante"],
+      "response": "Perfecto.\n\nContamos con envases PET para productos de limpieza.\n\nSon resistentes a químicos.\n\n¿Qué capacidad buscas?",
+      "type": "products_cleaning"
+    },
+
+    {
+      "triggers": ["250ml", "500ml", "1l", "1.5l", "1500ml", "1000ml"],
+      "response": "Perfecto.\n\nTenemos envases en esa capacidad.\n\nPodemos ayudarte con disponibilidad y tapa compatible.\n\n¿Quieres cotizar o ver catálogo?",
+      "type": "products_capacity"
+    },
+
+    {
+      "triggers": ["ver opciones", "opciones"],
+      "response": "Podemos recomendarte envases PET para tu producto con distintas capacidades y tapas.\n\n¿Quieres ver catálogo o cotizar con un asesor?",
+      "type": "pharma_options"
+    },
+
+    {
+      "triggers": ["catalogo", "catálogo", "ver catalogo"],
+      "response": "Aquí tienes el catálogo completo de envases PET.",
+      "type": "catalogo",
+      "payload": {
+        "type": "catalog",
+        "url": "/catalogo"
+      }
+    },
+    {
+      "triggers": ["asesor", "hablar con asesor", "contactar"],
+      "response": "Puedes hablar directamente con un asesor aquí 👇",
+      "type": "whatsapp",
+      "payload": {
+        "type": "whatsapp",
+        "phone": "+5215576576045",
+        "message": "Hola, quiero hablar con un asesor"
+      }
+    }
+  ]
+}

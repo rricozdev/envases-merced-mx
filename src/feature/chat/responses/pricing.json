@@ -1,0 +1,22 @@
+{
+  "responses": [
+    {
+      "triggers": [
+        "precio",
+        "precios",
+        "cotizacion",
+        "cotización",
+        "cotizar",
+        "costo",
+        "costos"
+      ],
+      "response": "El precio depende del tipo de envase, capacidad y cantidad.\n\nPodemos ayudarte con una cotización exacta 👇",
+      "type": "pricing",
+      "payload": {
+        "type": "whatsapp",
+        "phone": "+5215576576045",
+        "message": "Hola, quiero cotizar envases PET"
+      }
+    }
+  ]
+}
