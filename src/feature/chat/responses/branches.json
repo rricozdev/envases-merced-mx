@@ -1,0 +1,59 @@
+{
+  "responses": [
+    {
+      "triggers": ["sucursal", "sucursales", "ubicacion", "donde estan"],
+      "type": "branches_list",
+      "response": "Tenemos sucursales en:\n\n• CDMX\n• Puebla\n• Veracruz\n• Neza\n• Querétaro\n\nEscribe la ciudad para darte detalles."
+    },
+    {
+      "triggers": ["cdmx", "ciudad de mexico", "mexico"],
+      "type": "branch_cdmx",
+      "response": "Sucursal CDMX:\n📍 Azafrán 380\n🕒 Lun–Vie 8:00–17:00\n\n¿Quieres ver otra sucursal, ir al catálogo o hablar con un asesor?",
+      "nextContext": { "branch": "cdmx" },
+      "payload": {
+        "type": "branch",
+        "phone": "5215576576045"
+      }
+    },
+    {
+      "triggers": ["puebla"],
+      "type": "branch_puebla",
+      "response": "Sucursal Puebla:\n📍 Miguel Hidalgo 6155\n🕒 Lun–Vie 8:00–17:00\n\n¿Quieres ver otra sucursal, ir al catálogo o hablar con un asesor?",
+      "nextContext": { "branch": "puebla" },
+      "payload": {
+        "type": "branch",
+        "phone": "5212211460293"
+      }
+    },
+    {
+      "triggers": ["veracruz"],
+      "type": "branch_veracruz",
+      "response": "Sucursal Veracruz:\n📍 Igualdad 1398\n🕒 Lun–Vie 8:00–17:00\n\n¿Quieres ver otra sucursal, ir al catálogo o hablar con un asesor?",
+      "nextContext": { "branch": "veracruz" },
+      "payload": {
+        "type": "branch",
+        "phone": "5212295265435"
+      }
+    },
+    {
+      "triggers": ["neza", "nezahualcoyotl", "nezahualcóyotl"],
+      "type": "branch_neza",
+      "response": "Sucursal Neza:\n📍 Vicente Villada 744\n🕒 Lun–Vie 8:00–17:00\n\n¿Quieres ver otra sucursal, ir al catálogo o hablar con un asesor?",
+      "nextContext": { "branch": "neza" },
+      "payload": {
+        "type": "branch",
+        "phone": "5215521528498"
+      }
+    },
+    {
+      "triggers": ["queretaro", "querétaro", "querettaro"],
+      "type": "branch_queretaro",
+      "response": "Sucursal Querétaro:\n📍 George Washington 312\n🕒 Lun–Vie 8:00–17:00\n\n¿Quieres ver otra sucursal, ir al catálogo o hablar con un asesor?",
+      "nextContext": { "branch": "queretaro" },
+      "payload": {
+        "type": "branch",
+        "phone": "5214421418651"
+      }
+    }
+  ]
+}

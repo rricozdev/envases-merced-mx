@@ -1,5 +1,6 @@
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import ChatbotWidget from "@/feature/chat/ChatbotWidget";
 import Providers from "@/components/providers/Providers";
 import { Inter, Montserrat } from "next/font/google";
 import Script from "next/script";
@@ -42,7 +43,7 @@ export const metadata = {
   category: "business",
 
   // SEO técnico
-  // TODO: Abilitar cuando cuando se haga el build
+  // TODO: Habilitar cuando cuando se haga el build
   // robots: {
   //   index: true,
   //   follow: true,
@@ -167,6 +168,7 @@ export default function RootLayout({ children }) {
           <Header />
           <CartDrawer />
           {children}
+          <ChatbotWidget />
           <Footer />
         </Providers>
       </body>

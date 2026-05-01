@@ -1,0 +1,13 @@
+{
+  "responses": [
+    {
+      "triggers": ["default"],
+      "response": "No logré entender tu mensaje.\n\nPuedes escribir:\n• Productos\n• Sucursales\n• Cotización\n\nO dime qué tipo de envase buscas."
+    },
+    {
+      "triggers": ["gracias", "muchas gracias", "thanks", "thank you"],
+      "response": "Con gusto 😊\n\nSi necesitas algo más sobre envases PET, catálogo o cotización, aquí estoy.",
+      "type": "courtesy"
+    }
+  ]
+}
