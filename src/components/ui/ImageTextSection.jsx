@@ -11,8 +11,34 @@
  * @param {string} className - Clases adicionales para el contenedor principal
  * @param {React.ReactNode} children - Contenido adicional que se renderizará debajo de la descripción
  */
-
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
+
+const fadeSlide = (x) => ({
+  hidden: { opacity: 0, x },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { type: "spring", stiffness: 60, damping: 20 },
+  },
+});
+
+const stagger = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 80, damping: 20 },
+  },
+};
 
 export default function ImageTextSection({
   imageSrc,
@@ -34,42 +60,62 @@ export default function ImageTextSection({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
       {/* Imagen */}
-      <div className={`${isImageLeft ? "lg:order-1" : "lg:order-2"}`}>
+      <motion.div
+        className={`${isImageLeft ? "lg:order-1" : "lg:order-2"}`}
+        variants={fadeSlide(isImageLeft ? -48 : 48)}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <img
           src={imageSrc}
           alt={imageAlt}
           loading="lazy"
           className="w-full aspect-4/3 object-cover rounded-2xl"
         />
-      </div>
+      </motion.div>
 
       {/* Texto */}
-      <div
+      <motion.div
         className={`
-              flex flex-col gap-4
-              ${textAlign}
-              ${isImageLeft ? "lg:order-2" : "lg:order-1"}
-            `}
+          flex flex-col gap-4
+          ${textAlign}
+          ${isImageLeft ? "lg:order-2" : "lg:order-1"}
+        `}
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
       >
         {eyebrow && (
-          <span className="text-sm font-bold text-brand-accent uppercase tracking-wide font-secondary">
+          <motion.span
+            variants={fadeUp}
+            className="text-sm font-bold text-brand-accent uppercase tracking-wide font-secondary"
+          >
             {eyebrow}
-          </span>
+          </motion.span>
         )}
 
         {title && (
-          <h2 className="text-txtligth-primary dark:text-txtdark-primary text-3xl sm:text-4xl font-bold leading-tight font-primary">
+          <motion.h2
+            variants={fadeUp}
+            className="text-txtligth-primary dark:text-txtdark-primary text-3xl sm:text-4xl font-bold leading-tight font-primary"
+          >
             {title}
-          </h2>
+          </motion.h2>
         )}
 
         {description && (
-          <p className="text-txtligth-secondary font-medium dark:text-txtdark-secondary text-base leading-relaxed max-w-prose font-secondary">
+          <motion.p
+            variants={fadeUp}
+            className="text-txtligth-secondary font-medium dark:text-txtdark-secondary text-base leading-relaxed max-w-prose font-secondary"
+          >
             {description}
-          </p>
+          </motion.p>
         )}
-        {children}
-      </div>
+
+        {children && <motion.div variants={fadeUp}>{children}</motion.div>}
+      </motion.div>
     </div>
   );
 }
