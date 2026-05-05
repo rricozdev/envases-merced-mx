@@ -39,6 +39,46 @@ function mapSynonyms(input) {
   return input;
 }
 
+/**
+ * 🔥 NUEVO: parser semántico de capacidad
+ */
+function parseCapacity(input) {
+  if (!input) return null;
+
+  let text = input
+    .toLowerCase()
+    .replace(/,/g, ".")
+    .replace(/litros?/g, "l")
+    .replace(/mililitros?/g, "ml")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  // casos especiales
+  if (text.includes("medio l") || text.includes("medio litro")) return "500ml";
+  if (text.includes("litro y medio") || text.includes("l y medio"))
+    return "1.5l";
+
+  // números escritos básicos
+  text = text
+    .replace(/un l/g, "1l")
+    .replace(/uno l/g, "1l")
+    .replace(/dos l/g, "2l")
+    .replace(/tres l/g, "3l");
+
+  const match = text.match(/(\d+(\.\d+)?)\s*(l|ml)/);
+
+  if (!match) return null;
+
+  const value = parseFloat(match[1]);
+  const unit = match[3];
+
+  if (unit === "l") {
+    return value >= 1 ? `${value}l` : `${value * 1000}ml`;
+  }
+
+  return `${value}ml`;
+}
+
 function findMatch(input) {
   for (const item of ALL_RESPONSES) {
     for (const trigger of item.triggers) {
@@ -54,9 +94,6 @@ function getByType(type) {
   return ALL_RESPONSES.find((r) => r.type === type);
 }
 
-/**
- * SOURCE OF TRUTH → JSON
- */
 function resolveBranchData(branchKey) {
   return branches.responses.find((b) => b.nextContext?.branch === branchKey);
 }
@@ -70,9 +107,6 @@ function detectBranch(input) {
   return null;
 }
 
-/**
- * 🔥 MENSAJE DINÁMICO WHATSAPP
- */
 function buildWhatsAppMessage({ branch, context }) {
   const parts = ["Hola, quiero una cotización"];
 
@@ -107,9 +141,6 @@ function buildWhatsAppMessage({ branch, context }) {
   return parts.join(" ");
 }
 
-/**
- * 🔥 MAPEO UNIFICADO DE CATEGORÍAS
- */
 function inferCategoryFromType(type) {
   if (type === "products_pharma") return "pharma";
   if (type === "products_cleaning") return "cleaning";
@@ -122,6 +153,23 @@ function inferCategoryFromType(type) {
 export function getBotResponse(userInput, context = {}) {
   let input = normalize(userInput);
   input = mapSynonyms(input);
+
+  /**
+   * =========================
+   * 🔥 NUEVO: DETECCIÓN DE CAPACIDAD (PRIORIDAD ALTA)
+   * =========================
+   */
+  const detectedCapacity = parseCapacity(input);
+
+  if (detectedCapacity) {
+    return {
+      ...getByType("products_capacity"),
+      nextContext: {
+        ...context,
+        capacity: detectedCapacity,
+      },
+    };
+  }
 
   /**
    * =========================
@@ -283,17 +331,11 @@ export function getBotResponse(userInput, context = {}) {
       ...match.nextContext,
     };
 
-    /**
-     * 🔥 persistencia de categoría (TODAS, no solo pharma)
-     */
     const inferredCategory = inferCategoryFromType(match.type);
     if (inferredCategory) {
       nextContext.category = inferredCategory;
     }
 
-    /**
-     * 🔥 persistencia de capacidad
-     */
     if (/\d+(ml|l)/.test(input)) {
       nextContext.capacity = input;
     }
