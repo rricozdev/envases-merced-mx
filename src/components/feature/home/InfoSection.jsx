@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import CardInfo from "@/components/ui/CardInfo";
 import Container from "@/components/ui/Container";
 import ContentSection from "@/components/ui/ContentSection";
@@ -15,6 +18,21 @@ const CONTENT_HEADER = {
     "Fabricación propia, distribución nacional y asesoría técnica especializada, para que nunca tengas que buscar en otro lado.",
 };
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 32, scale: 0.97 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 18,
+      delay: i * 0.08,
+    },
+  }),
+};
+
 export default function InfoSection() {
   return (
     <Container variant="secondary">
@@ -23,19 +41,24 @@ export default function InfoSection() {
         title={CONTENT_HEADER.title}
         description={CONTENT_HEADER.description}
       >
-        {/* Todo el contenido de la sección va aca */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {cardsInfo.map((card) => (
-            <CardInfo
-              key={card.id}
-              title={card.title}
-              color={card.color}
-              description={card.description}
-              icon={card.icon}
-              detail={card.detail}
-            />
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {cardsInfo.map((card, i) => (
+            <motion.div key={card.id} custom={i} variants={cardVariants}>
+              <CardInfo
+                title={card.title}
+                color={card.color}
+                description={card.description}
+                icon={card.icon}
+                detail={card.detail}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </ContentSection>
     </Container>
   );
