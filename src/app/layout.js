@@ -44,17 +44,17 @@ export const metadata = {
 
   // SEO técnico
   // TODO: Habilitar cuando cuando se haga el build
-  // robots: {
-  //   index: true,
-  //   follow: true,
-  //   googleBot: {
-  //     index: true,
-  //     follow: true,
-  //     "max-image-preview": "large",
-  //   },
-  // },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
 
-  // googleSiteVerification: "g07mTuT-0s6Z8PU3SjFGC5F5bhqo6HnTwzd9Mn5MKL8",
+  googleSiteVerification: "g07mTuT-0s6Z8PU3SjFGC5F5bhqo6HnTwzd9Mn5MKL8",
 
   alternates: {
     canonical: "https://envaseslamerced.mx/",
