@@ -717,24 +717,24 @@ const CatalogoProductos = Object.freeze({
         alt: "silueta-125-cristal",
       },
     },
-    {
-      id: "silueta-500-cristal",
-      unidad: UnidadesDeMedida.MILILITRO, // utiliza el objeto, con la propiedad que corresponda
-      nombre: "Silueta",
-      volumen: 500,
-      categorias: [CategoriaProducto.COSMETICO],
-      rosca: {
-        diametro: CodigoRosca.ROSCA_28,
-        estandar: null,
-      },
-      piezasPorPaquete: 180,
-      color: ColorProducto.CRISTAL,
-      etiquetas: [EtiquetaProducto.PEDIDO],
-      img: {
-        src: "/assets/product_img/silueta-500.webp",
-        alt: "silueta-500-cristal",
-      },
-    },
+    // {
+    //   id: "silueta-500-cristal",
+    //   unidad: UnidadesDeMedida.MILILITRO, // utiliza el objeto, con la propiedad que corresponda
+    //   nombre: "Silueta",
+    //   volumen: 500,
+    //   categorias: [CategoriaProducto.COSMETICO],
+    //   rosca: {
+    //     diametro: CodigoRosca.ROSCA_28,
+    //     estandar: null,
+    //   },
+    //   piezasPorPaquete: 180,
+    //   color: ColorProducto.CRISTAL,
+    //   etiquetas: [EtiquetaProducto.PEDIDO],
+    //   img: {
+    //     src: "/assets/product_img/silueta-500.webp",
+    //     alt: "silueta-500-cristal",
+    //   },
+    // },
     {
       id: "campanita-500-cristal",
       unidad: UnidadesDeMedida.MILILITRO, // utiliza el objeto, con la propiedad que corresponda
