@@ -1,6 +1,6 @@
 export const BRANCH_PHONES = {
   CDMX: {
-    phones: ["525576676045", "525591292477", "525591340732"],
+    phones: ["5215576576045"],
     whatsapp: "5215576576045",
     email: ["grangas@envaseslamerced.mx"], // corporativo UI
     sendEmail: ["envaseslamercedcdmx5@gmail.com"], // Gmail envío real
