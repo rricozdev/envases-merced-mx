@@ -26,6 +26,7 @@ import { useUI } from "@/components/providers/UIProvider";
 import { OVERLAYS } from "@/utils/constants/overlays";
 import { MessageCircle, X, Send } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { safeWhatsAppUrl } from "@/utils/whatsapp";
 
 export default function ChatbotWidget() {
   const [input, setInput] = useState("");
@@ -158,17 +159,19 @@ export default function ChatbotWidget() {
                     >
                       {text}
 
-                      {msg.payload?.phone && (
-                        <a
-                          href={`https://wa.me/${msg.payload.phone}?text=${encodeURIComponent(
-                            msg.payload.message,
-                          )}`}
-                          target="_blank"
-                          className="block mt-1 text-xs underline opacity-80"
-                        >
-                          Abrir WhatsApp
-                        </a>
-                      )}
+                      {(() => {
+                        const waUrl = safeWhatsAppUrl(msg.payload?.phone, msg.payload?.message);
+                        if (!waUrl) return null;
+                        return (
+                          <a
+                            href={waUrl}
+                            target="_blank"
+                            className="block mt-1 text-xs underline opacity-80"
+                          >
+                            Abrir WhatsApp
+                          </a>
+                        );
+                      })()}
                     </div>
                   </motion.div>
                 );
