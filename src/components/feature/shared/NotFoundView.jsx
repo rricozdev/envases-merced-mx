@@ -28,11 +28,7 @@ export default function NotFoundView() {
         {/* CTA */}
         <Link
           href="/"
-          className="inline-flex items-center justify-center px-5 py-3 rounded-md text-sm font-medium transition cursor-pointer"
-          style={{
-            background: "var(--color-brand-accent)",
-            color: "white",
-          }}
+          className="inline-flex items-center justify-center px-5 py-3 rounded-md text-sm font-medium transition cursor-pointer bg-[var(--color-brand-accent)] text-white"
         >
           Volver al inicio
         </Link>

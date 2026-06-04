@@ -29,7 +29,7 @@ export const metadata = {
       "Descubre nuestra misión, visión y valores. Presencia en múltiples ciudades de Mexico",
     images: [
       {
-        url: " ",
+        url: "https://envaseslamerced.mx/assets/bg_img/bg2.webp",
         width: 1200,
         height: 630,
         alt: "Envases la Merced - Sobre Nosotros",
@@ -45,7 +45,7 @@ export const metadata = {
     title: "Sobre Nosotros | Envases la Merced",
     description:
       "Soluciones premium en envases PET. Presencia nacional en todo Mexico",
-    images: [" "],
+    images: ["https://envaseslamerced.mx/assets/bg_img/bg2.webp"],
   },
 
   // Otros meta tags
