@@ -145,7 +145,7 @@ export default function RootLayout({ children }) {
           id="theme-script"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: `...tu script...`,
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark')}catch(e){}})()`,
           }}
         />
 
@@ -160,7 +160,7 @@ export default function RootLayout({ children }) {
             src="https://www.googletagmanager.com/ns.html?id=GTM-W4JS5W3L"
             height="0"
             width="0"
-            style={{ display: "none", visibility: "hidden" }}
+            className="hidden"
           />
         </noscript>
 

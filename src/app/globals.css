@@ -130,3 +130,22 @@ body {
     opacity: 1;
   }
 }
+
+/**
+ * =========================
+ * Chat scrollbar personalizada
+ * =========================
+ */
+
+.chat-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: 99px;
+}
