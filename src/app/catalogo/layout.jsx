@@ -4,54 +4,50 @@ import SchemaMarkup from "@/components/share/SchemaMarkup";
 import { CatalogoProductos } from "@/utils/constants/products/listProducts";
 
 export const metadata = {
-  title: "Catalogo envases y Botellas PET",
+  title: "Catálogo de Envases y Botellas PET | Envases La Merced",
   description:
     "Descubre nuestra amplia gama de botellas, frascos y tapas PET de alta calidad para alimentos, cosméticos y productos de limpieza. Venta al mayoreo con envío a toda la República Mexicana.",
 
-  // Keywords (usa en atributos o en schema)
   keywords: [
     "envases PET",
-    "envases plásticos Colombia",
+    "envases plásticos México",
     "soluciones de empaque",
     "empresa envases",
-    "Catalogo de envases",
+    "Catálogo de envases",
     "Envases la Merced",
   ],
 
-  // Open Graph (Social Media)
   openGraph: {
     type: "website",
     url: "https://envaseslamerced.mx/catalogo",
-    title: "Sobre Nosotros | Envases la Merced - Soluciones en Envases PET",
+    title: "Catálogo de Envases y Botellas PET | Envases La Merced",
     description:
-      "Descubre nuestra misión, visión y valores. Presencia en múltiples ciudades de Colombia.",
+      "Explora nuestro catálogo completo de botellas, frascos y tapas PET. Calidad premium, venta al mayoreo con envío a toda la República Mexicana.",
     images: [
       {
-        url: "",
+        url: "https://envaseslamerced.mx/assets/bg_img/bg2.webp",
         width: 1200,
         height: 630,
-        alt: "Envases la Merced - Sobre Nosotros",
+        alt: "Catálogo de envases PET al mayoreo - Envases La Merced",
       },
     ],
-    siteName: "Envases la Merced",
-    locale: "es_CO",
+    siteName: "Envases La Merced",
+    locale: "es_MX",
   },
 
-  // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "Sobre Nosotros | Envases la Merced",
+    title: "Catálogo de Envases PET | Envases La Merced",
     description:
-      "Soluciones premium en envases PET. Presencia nacional en Colombia.",
-    images: ["https://www.tudominio.com/images/about-og.jpg"],
+      "Explora nuestro catálogo completo de botellas, frascos y tapas PET. Calidad premium, venta al mayoreo.",
+    images: ["https://envaseslamerced.mx/assets/bg_img/bg2.webp"],
   },
 
-  // Otros meta tags
   robots: "index, follow",
-  canonical: "https://www.tudominio.com/about",
+  canonical: "https://envaseslamerced.mx/catalogo",
   language: "es",
   alternates: {
-    canonical: "https://www.tudominio.com/about",
+    canonical: "https://envaseslamerced.mx/catalogo",
   },
 };
 

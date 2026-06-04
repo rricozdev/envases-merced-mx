@@ -52,29 +52,6 @@ export default function ChatbotWidget() {
 
   return (
     <>
-      <style>{`
-        .dot {
-          width: 6px;
-          height: 6px;
-          background: currentColor;
-          border-radius: 50%;
-          animation: chatDotBounce 1.2s infinite;
-          opacity: 0.5;
-        }
-        .dot:nth-child(2) { animation-delay: 0.2s; }
-        .dot:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes chatDotBounce {
-          0%, 80%, 100% { transform: translateY(0); }
-          40% { transform: translateY(-6px); }
-        }
-        .chat-scrollbar::-webkit-scrollbar { width: 4px; }
-        .chat-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .chat-scrollbar::-webkit-scrollbar-thumb {
-          background: var(--color-border-default);
-          border-radius: 99px;
-        }
-      `}</style>
-
       {/* FAB */}
       <AnimatePresence initial={false}>
         {!isChatOpen && (
@@ -87,11 +64,7 @@ export default function ChatbotWidget() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.92 }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className="fixed bottom-4 right-4 z-[60] w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer"
-            style={{
-              background: "var(--color-brand-accent)",
-              color: "white",
-            }}
+            className="fixed bottom-4 right-4 z-[60] w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer bg-[var(--color-brand-accent)] text-white"
           >
             <MessageCircle size={24} />
           </motion.button>
@@ -107,34 +80,24 @@ export default function ChatbotWidget() {
             animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
             exit={{ opacity: 0, y: 24, scale: 0.96, filter: "blur(4px)" }}
             transition={{ type: "spring", stiffness: 380, damping: 28 }}
-            className="fixed bottom-4 right-4 z-[60] w-[90%] sm:w-80 h-[480px] rounded-xl flex flex-col backdrop-blur-md shadow-xl"
-            style={{
-              background: "var(--color-surface-elevated)",
-              border: "1px solid var(--color-border-default)",
-            }}
+            className="fixed bottom-4 right-4 z-[60] w-[90%] sm:w-80 h-[480px] rounded-xl flex flex-col backdrop-blur-md shadow-xl bg-[var(--color-surface-elevated)] border border-[var(--color-border-default)]"
           >
             {/* HEADER */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.1, duration: 0.2 }}
-              className="flex items-center justify-between px-4 py-3 rounded-t-xl"
-              style={{ borderBottom: "1px solid var(--color-border-default)" }}
+              className="flex items-center justify-between px-4 py-3 rounded-t-xl border-b border-[var(--color-border-default)]"
             >
               <div className="flex items-center gap-2">
                 <div className="relative">
                   <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center"
-                    style={{ background: "var(--color-brand-accent)" }}
+                    className="w-8 h-8 rounded-full flex items-center justify-center bg-[var(--color-brand-accent)]"
                   >
                     <MessageCircle size={14} color="white" />
                   </div>
                   <span
-                    className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border-2"
-                    style={{
-                      background: "#22c55e",
-                      borderColor: "var(--color-surface-elevated)",
-                    }}
+                    className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border-2 bg-green-500 border-[var(--color-surface-elevated)]"
                   />
                 </div>
                 <div className="flex flex-col">
@@ -187,13 +150,11 @@ export default function ChatbotWidget() {
                     className={`flex ${isUser ? "justify-end" : "justify-start"}`}
                   >
                     <div
-                      className="px-3 py-2 rounded-lg max-w-[80%] text-sm"
-                      style={{
-                        background: isUser
-                          ? "var(--color-brand-accent)"
-                          : "var(--color-surface)",
-                        color: isUser ? "white" : "var(--foreground)",
-                      }}
+                      className={`px-3 py-2 rounded-lg max-w-[80%] text-sm ${
+                        isUser
+                          ? "bg-[var(--color-brand-accent)] text-white"
+                          : "bg-[var(--color-surface)] text-[var(--foreground)]"
+                      }`}
                     >
                       {text}
 
@@ -224,8 +185,7 @@ export default function ChatbotWidget() {
                     className="flex justify-start"
                   >
                     <div
-                      className="px-3 py-2 rounded-lg max-w-[80%] text-sm flex gap-1 items-center"
-                      style={{ background: "var(--color-surface)" }}
+                      className="px-3 py-2 rounded-lg max-w-[80%] text-sm flex gap-1 items-center bg-[var(--color-surface)]"
                     >
                       <span className="dot" />
                       <span className="dot" />
@@ -243,19 +203,13 @@ export default function ChatbotWidget() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.15, duration: 0.2 }}
-              className="p-3 flex gap-2"
-              style={{ borderTop: "1px solid var(--color-border-default)" }}
+              className="p-3 flex gap-2 border-t border-[var(--color-border-default)]"
             >
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Escribe tu mensaje..."
-                className="flex-1 p-2 rounded-md text-sm outline-none transition-all duration-150"
-                style={{
-                  background: "var(--color-surface)",
-                  border: "1px solid var(--color-border-default)",
-                  color: "var(--foreground)",
-                }}
+                className="flex-1 p-2 rounded-md text-sm outline-none transition-all duration-150 bg-[var(--color-surface)] border border-[var(--color-border-default)] text-[var(--foreground)]"
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
               />
 
@@ -264,11 +218,7 @@ export default function ChatbotWidget() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.92 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                className="px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5"
-                style={{
-                  background: "var(--color-brand-accent)",
-                  color: "white",
-                }}
+                className="px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 bg-[var(--color-brand-accent)] text-white"
               >
                 <Send size={14} />
               </motion.button>
