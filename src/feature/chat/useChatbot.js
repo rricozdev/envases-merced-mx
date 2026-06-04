@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getBotResponse } from "./conversationEngine";
+import { safeWhatsAppUrl } from "@/utils/whatsapp";
 
 export function useChatbot() {
   const [messages, setMessages] = useState([]);
@@ -61,25 +62,9 @@ export function useChatbot() {
         if (botData?.payload?.type === "whatsapp") {
           const phone = botData.payload?.phone;
           const message = botData.payload?.message;
+          const url = safeWhatsAppUrl(phone, message);
 
-          const cleanPhone = phone?.replace(/\D/g, "");
-
-          console.log("🧪 DEBUG PHONE:", {
-            phoneOriginal: phone,
-            phoneLimpio: cleanPhone,
-            length: cleanPhone?.length,
-          });
-
-          const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
-            message,
-          )}`;
-
-          console.log("🧪 URL FINAL:", url);
-
-          /**
-           * 🔥 SIN GUARD → queremos ver el error real
-           */
-          window.open(url, "_blank");
+          if (url) window.open(url, "_blank");
         }
       }
 

@@ -11,6 +11,7 @@ import {
 } from "@tabler/icons-react";
 
 import Button from "@/components/ui/Button";
+import { safeWhatsAppUrl } from "@/utils/whatsapp";
 
 const SucursalView = ({ sucursal }) => {
   const iconClass = "text-brand-accent mt-0.5 shrink-0";
@@ -97,7 +98,7 @@ const SucursalView = ({ sucursal }) => {
                   WhatsApp
                 </h3>
                 <a
-                  href={`https://wa.me/${sucursal.whatsapp.replace(/\D/g, "")}`}
+                  href={safeWhatsAppUrl(sucursal.whatsapp)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 dark:text-txtdark-secondary hover:underline"
@@ -155,17 +156,13 @@ const SucursalView = ({ sucursal }) => {
             size="md"
             icon={<IconCalendarEvent size={18} />}
             iconPosition="left"
-            onClick={() =>
-              window.open(
-                `https://wa.me/${sucursal.whatsapp.replace(
-                  /\D/g,
-                  "",
-                )}?text=${encodeURIComponent(
-                  `Hola, quiero agendar una visita a la sucursal ${sucursal.name}.`,
-                )}`,
-                "_blank",
-              )
-            }
+            onClick={() => {
+              const url = safeWhatsAppUrl(
+                sucursal.whatsapp,
+                `Hola, quiero agendar una visita a la sucursal ${sucursal.name}.`,
+              );
+              if (url) window.open(url, "_blank");
+            }}
           >
             Agendar visita
           </Button>
