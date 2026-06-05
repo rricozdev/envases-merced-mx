@@ -97,20 +97,20 @@ export const sucursalesData = [
     seo: {
       title: "Envases PET en Querétaro | Botellas y Frascos",
       description:
-        "Compra envases PET en Querétaro. Botellas, frascos y tapas al mayoreo con disponibilidad inmediata en nuestra sucursal en George Washington 312.",
+        "Compra envases PET en Querétaro. Botellas, frascos y tapas al mayoreo con disponibilidad inmediata en nuestra sucursal en Parque Industrial Benito Juarez.",
     },
     facebook: "Envases La Merced Querétaro",
     facebookUrl: "https://www.facebook.com/profile.php?id=61577114579391",
     address:
-      "Calle George Washington 312, Col. Libertadores, Querétaro, México, 76118",
+      "Parque Industrial Benito Juarez, Acceso 3, Bodega 52, Col. Conjunto Industrial Victoria II, C.P. 76120, Santiago de Queretaro, Queretaro, Mexico",
 
     phone: [...BRANCH_PHONES.QUERETARO.phones],
     whatsapp: BRANCH_PHONES.QUERETARO.whatsapp,
     email: [...BRANCH_PHONES.QUERETARO.email],
 
     mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.460529842916!2d-100.45710372831219!3d20.65083475847458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d351106313e53d%3A0x9d9b28c5ca0359ba!2sEnvases%20La%20Merced%20Queretaro!5e0!3m2!1ses!2smx!4v1765570260247!5m2!1ses!2smx",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.460529842916!2d-100.433616!3d20.628988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d351106313e53d%3A0x9d9b28c5ca0359ba!2sEnvases%20La%20Merced%20Queretaro!5e0!3m2!1ses!2smx!4v1!5m2!1ses!2smx",
     directionUrl:
-      "https://www.google.com/maps/search/?api=1&query=George+Washington+312+Queretaro",
+      "https://www.google.com/maps/search/?api=1&query=Parque+Industrial+Benito+Juarez+Acceso+3+Bodega+52+Queretaro",
   },
 ];

@@ -48,7 +48,7 @@
     {
       "triggers": ["queretaro", "querétaro", "querettaro"],
       "type": "branch_queretaro",
-      "response": "Sucursal Querétaro:\n📍 George Washington 312\n🕒 Lun–Vie 8:00–17:00\n\n¿Quieres ver otra sucursal, ir al catálogo o hablar con un asesor?",
+      "response": "Sucursal Querétaro:\n📍 Parque Industrial Benito Juarez, Acceso 3, Bodega 52\n🕒 Lun–Vie 8:00–17:00\n\n¿Quieres ver otra sucursal, ir al catálogo o hablar con un asesor?",
       "nextContext": { "branch": "queretaro" },
       "payload": {
         "type": "branch",
