@@ -24,12 +24,15 @@ import { useState, useEffect, useRef } from "react";
 import { useChatbot } from "@/feature/chat/useChatbot";
 import { useUI } from "@/components/providers/UIProvider";
 import { OVERLAYS } from "@/utils/constants/overlays";
-import { MessageCircle, X, Send } from "lucide-react";
+import { Bot, X, Send } from "lucide-react";
+import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { safeWhatsAppUrl } from "@/utils/whatsapp";
+import { sucursalesData } from "@/utils/constants/sucursales";
 
 export default function ChatbotWidget() {
   const [input, setInput] = useState("");
+  const [showWhatsAppMenu, setShowWhatsAppMenu] = useState(false);
 
   const { messages, sendMessage, isLoading } = useChatbot();
   const { isOpen, open, close } = useUI();
@@ -38,10 +41,22 @@ export default function ChatbotWidget() {
   const isCartOpen = isOpen(OVERLAYS.CART);
 
   const messagesEndRef = useRef(null);
+  const waMenuRef = useRef(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isLoading]);
+
+  useEffect(() => {
+    if (!showWhatsAppMenu) return;
+    const handleClickOutside = (e) => {
+      if (waMenuRef.current && !waMenuRef.current.contains(e.target)) {
+        setShowWhatsAppMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showWhatsAppMenu]);
 
   const handleSend = () => {
     if (!input.trim()) return;
@@ -49,16 +64,73 @@ export default function ChatbotWidget() {
     setInput("");
   };
 
+  const handleOpenChat = () => {
+    setShowWhatsAppMenu(false);
+    open(OVERLAYS.CHATBOT);
+  };
+
   if (isCartOpen) return null;
 
   return (
     <>
-      {/* FAB */}
+      {/* WhatsApp FAB */}
+      <AnimatePresence initial={false}>
+        {!isChatOpen && (
+          <motion.button
+            key="whatsapp-fab"
+            onClick={() => setShowWhatsAppMenu((prev) => !prev)}
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.92 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            className="fixed bottom-20 right-4 z-[60] w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer bg-green-500 text-white"
+          >
+            <IconBrandWhatsapp size={24} />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* WhatsApp branch menu */}
+      <AnimatePresence initial={false}>
+        {showWhatsAppMenu && !isChatOpen && (
+          <motion.div
+            ref={waMenuRef}
+            key="whatsapp-menu"
+            initial={{ opacity: 0, y: 12, scale: 0.92 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 12, scale: 0.92 }}
+            transition={{ type: "spring", stiffness: 400, damping: 24 }}
+            className="fixed bottom-[136px] right-4 z-[60] w-48 rounded-xl overflow-hidden shadow-xl bg-[var(--color-surface-elevated)] border border-[var(--color-border-default)]"
+          >
+            <div className="p-2 space-y-1">
+              {sucursalesData.map((branch) => (
+                <a
+                  key={branch.path}
+                  href={safeWhatsAppUrl(
+                    branch.whatsapp,
+                    "Hola, me interesan sus productos"
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-[var(--color-surface)] transition-colors"
+                >
+                  <IconBrandWhatsapp size={16} className="text-green-500 shrink-0" />
+                  {branch.name}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Chat FAB */}
       <AnimatePresence initial={false}>
         {!isChatOpen && (
           <motion.button
             key="chat-fab"
-            onClick={() => open(OVERLAYS.CHATBOT)}
+            onClick={handleOpenChat}
             initial={{ opacity: 0, scale: 0.5, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
@@ -67,7 +139,7 @@ export default function ChatbotWidget() {
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
             className="fixed bottom-4 right-4 z-[60] w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer bg-[var(--color-brand-accent)] text-white"
           >
-            <MessageCircle size={24} />
+            <Bot size={24} />
           </motion.button>
         )}
       </AnimatePresence>
@@ -95,7 +167,7 @@ export default function ChatbotWidget() {
                   <div
                     className="w-8 h-8 rounded-full flex items-center justify-center bg-[var(--color-brand-accent)]"
                   >
-                    <MessageCircle size={14} color="white" />
+                    <Bot size={14} color="white" />
                   </div>
                   <span
                     className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border-2 bg-green-500 border-[var(--color-surface-elevated)]"
