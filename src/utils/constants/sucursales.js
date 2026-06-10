@@ -109,7 +109,7 @@ export const sucursalesData = [
     email: [...BRANCH_PHONES.QUERETARO.email],
 
     mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.460529842916!2d-100.433616!3d20.628988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d351106313e53d%3A0x9d9b28c5ca0359ba!2sEnvases%20La%20Merced%20Queretaro!5e0!3m2!1ses!2smx!4v1!5m2!1ses!2smx",
+      "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3733.6222465023466!2d-100.43408247339876!3d20.644248792086742!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d351106313e53d%3A0x9d9b28c5ca0359ba!2sEnvase%20la%20Merced%20Queretaro!5e0!3m2!1ses!2sco!4v1781060654670!5m2!1ses!2sco",
     directionUrl:
       "https://www.google.com/maps/search/?api=1&query=Parque+Industrial+Benito+Juarez+Acceso+3+Bodega+52+Queretaro",
   },
