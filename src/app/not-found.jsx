@@ -1,11 +1,12 @@
 import NotFoundView from "@/components/feature/shared/NotFoundView";
 
-/**
- * Next.js Not Found entry point
- *
- * - Solo delega render
- * - Mantenemos arquitectura limpia
- */
+export const metadata = {
+  title: "Página no encontrada | Envases La Merced",
+  robots: "noindex",
+  alternates: {
+    canonical: "https://envaseslamerced.mx/404",
+  },
+};
 
 export default function NotFound() {
   return <NotFoundView />;

@@ -50,17 +50,19 @@ export const metadata = {
 
   // Otros meta tags
   robots: "index, follow",
-  canonical: "https://envaseslamerced.mx/",
-  language: "es",
   alternates: {
-    canonical: "https://envaseslamerced.mx/",
+    canonical: "https://envaseslamerced.mx/sobre-nosotros",
+    languages: {
+      "es-MX": "https://envaseslamerced.mx/sobre-nosotros",
+      "x-default": "https://envaseslamerced.mx/sobre-nosotros",
+    },
   },
 };
 
 export default function SobreNosotrosPage() {
   const breadscrumb = [
     { name: "inicio", url: "/" },
-    { name: "Sobre Nosotros", url: "/sobre-nostros" },
+    { name: "Sobre Nosotros", url: "/sobre-nosotros" },
   ];
 
   const faqSchemaAbout = {

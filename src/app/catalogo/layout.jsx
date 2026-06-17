@@ -44,10 +44,12 @@ export const metadata = {
   },
 
   robots: "index, follow",
-  canonical: "https://envaseslamerced.mx/catalogo",
-  language: "es",
   alternates: {
     canonical: "https://envaseslamerced.mx/catalogo",
+    languages: {
+      "es-MX": "https://envaseslamerced.mx/catalogo",
+      "x-default": "https://envaseslamerced.mx/catalogo",
+    },
   },
 };
 

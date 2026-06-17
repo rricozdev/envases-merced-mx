@@ -60,6 +60,7 @@ export const metadata = {
     canonical: "https://envaseslamerced.mx/",
     languages: {
       "es-MX": "https://envaseslamerced.mx/",
+      "x-default": "https://envaseslamerced.mx/",
     },
   },
 
