@@ -46,10 +46,6 @@ export const metadata = {
   robots: "index, follow",
   alternates: {
     canonical: "https://envaseslamerced.mx/catalogo",
-    languages: {
-      "es-MX": "https://envaseslamerced.mx/catalogo",
-      "x-default": "https://envaseslamerced.mx/catalogo",
-    },
   },
 };
 

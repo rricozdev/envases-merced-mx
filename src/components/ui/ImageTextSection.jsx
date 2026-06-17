@@ -70,6 +70,8 @@ export default function ImageTextSection({
         <img
           src={imageSrc}
           alt={imageAlt}
+          width={4}
+          height={3}
           loading="lazy"
           className="w-full aspect-4/3 object-cover rounded-2xl"
         />
