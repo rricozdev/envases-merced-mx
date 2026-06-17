@@ -17,9 +17,8 @@ export function ContentBtnHero() {
         onClick={() => {
           openWhatsApp({
             phone: BRANCH_PHONES.CDMX.whatsapp,
-            message: encodeURIComponent(
-              "Estoy interesado(a) en adquirir productos PET, quisiera asesorarme y cotizar.",
-            ),
+            message:
+              "Hola, estoy interesado en sus productos PET. Me gustaría recibir asesoría y una cotización.",
           });
         }}
       >
