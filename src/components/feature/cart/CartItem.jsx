@@ -49,6 +49,8 @@ export default function CartItem({ item }) {
         <img
           src={item.img.src}
           alt={item.img.alt}
+          width={80}
+          height={80}
           className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />

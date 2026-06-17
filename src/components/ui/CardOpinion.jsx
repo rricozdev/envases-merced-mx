@@ -15,6 +15,8 @@ export default function CardOpinion({ opinion, avatar, name, position }) {
             <img
               src={avatar}
               alt={name}
+              width={48}
+              height={48}
               className="w-full h-full object-cover"
             />
           ) : (

@@ -52,10 +52,6 @@ export const metadata = {
   robots: "index, follow",
   alternates: {
     canonical: "https://envaseslamerced.mx/sobre-nosotros",
-    languages: {
-      "es-MX": "https://envaseslamerced.mx/sobre-nosotros",
-      "x-default": "https://envaseslamerced.mx/sobre-nosotros",
-    },
   },
 };
 

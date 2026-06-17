@@ -19,6 +19,8 @@ export default function ProductCard({ product, onQuote }) {
         <img
           src={product.img.src ?? "/images/placeholder-product.webp"}
           alt={`${product.nombre} ${product.volumen}ml ${product.color}`}
+          width={200}
+          height={208}
           className="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
         />

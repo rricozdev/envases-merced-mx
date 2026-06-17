@@ -242,7 +242,7 @@ const CatalogoProductos = Object.freeze({
       },
     },
     {
-      id: "piñera-930-cristal",
+      id: "pinera-930-cristal",
       unidad: UnidadesDeMedida.MILILITRO, // utiliza el objeto, con la propiedad que corresponda
       nombre: "Piñera",
       volumen: 930,
@@ -255,8 +255,8 @@ const CatalogoProductos = Object.freeze({
       color: ColorProducto.CRISTAL,
       etiquetas: [EtiquetaProducto.STOCK],
       img: {
-        src: "/assets/product_img/piñera-930.webp",
-        alt: "piñera-930-cristal",
+        src: "/assets/product_img/pinera-930.webp",
+        alt: "pinera-930-cristal",
       },
     },
 
