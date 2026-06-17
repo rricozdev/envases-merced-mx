@@ -31,12 +31,7 @@ export async function generateMetadata({ params }) {
     title: sucursal.seo.title,
     description: sucursal.seo.description,
     alternates: {
-      // Canonical limpio → clave para SEO
       canonical: `https://envaseslamerced.mx/${sucursal.path}`,
-      languages: {
-        "es-MX": `https://envaseslamerced.mx/${sucursal.path}`,
-        "x-default": `https://envaseslamerced.mx/${sucursal.path}`,
-      },
     },
   };
 }
