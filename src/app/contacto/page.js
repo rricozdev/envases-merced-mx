@@ -6,6 +6,10 @@ export const metadata = {
     "Solicita tu cotización de envases PET al mayoreo. Contáctanos por WhatsApp, teléfono o correo.",
   alternates: {
     canonical: "https://envaseslamerced.mx/contacto",
+    languages: {
+      "es-MX": "https://envaseslamerced.mx/contacto",
+      "x-default": "https://envaseslamerced.mx/contacto",
+    },
   },
 };
 
