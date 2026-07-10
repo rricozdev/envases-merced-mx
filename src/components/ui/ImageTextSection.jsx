@@ -13,6 +13,7 @@
  */
 "use client";
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const fadeSlide = (x) => ({
@@ -67,11 +68,11 @@ export default function ImageTextSection({
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <img
+        <Image
           src={imageSrc}
           alt={imageAlt}
-          width={4}
-          height={3}
+          width={800}
+          height={600}
           loading="lazy"
           className="w-full aspect-4/3 object-cover rounded-2xl"
         />

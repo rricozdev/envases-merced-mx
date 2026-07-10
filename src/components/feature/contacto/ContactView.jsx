@@ -16,7 +16,8 @@ export default function ContactView() {
             Póngase en contacto con nosotros
           </h1>
           <p className="mt-3">
-            Complete el siguiente formulario o utilice otros métodos.
+            Solicite cotización a su proveedor de envases PET. Complete el
+            siguiente formulario o utilice otros métodos de contacto.
           </p>
         </header>
 

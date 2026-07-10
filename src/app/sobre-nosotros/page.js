@@ -8,13 +8,15 @@ export const metadata = {
   // Títulos optimizados
   title: "Sobre Nosotros - Soluciones en Envases PET",
   description:
-    "Descubre quiénes somos. Envases la Merced ofrece soluciones premium en envases PET para empresas de Mexico. Misión, visión y presencia nacional.",
+    "Descubre quiénes somos. Envases la Merced es tu proveedor de envases PET en la industria del packaging en México. Misión, visión y presencia nacional.",
 
   // Keywords (usa en atributos o en schema)
   keywords: [
     "envases PET",
     "envases plásticos Mexico",
     "soluciones de empaque",
+    "proveedor de envases PET",
+    "industria del packaging México",
     "empresa envases",
     "sobre nosotros",
     "Envases la Merced",
@@ -26,7 +28,7 @@ export const metadata = {
     url: "https://envaseslamerced.mx/sobre-nosotros",
     title: "Sobre Nosotros | Envases la Merced - Soluciones en Envases PET",
     description:
-      "Descubre nuestra misión, visión y valores. Presencia en múltiples ciudades de Mexico",
+      "Conoce a tu proveedor de envases PET. Descubre nuestra misión, visión y valores en la industria del packaging. Presencia en múltiples ciudades de México.",
     images: [
       {
         url: "https://envaseslamerced.mx/assets/bg_img/bg2.webp",

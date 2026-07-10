@@ -14,7 +14,7 @@ const data = [
       </>
     ),
     description:
-      "Falta de stock, precios inestables y poca asesoría técnica son más comunes de lo que deberían. Cada retraso impacta directamente tu producción, tus entregas y la confianza de tus clientes.",
+      "Falta de stock, precios inestables y poca asesoría técnica son más comunes de lo que deberían cuando no eliges al proveedor de envases PET adecuado. Cada retraso impacta directamente tu producción, tus entregas y la confianza de tus clientes.",
     imageSrc: "/assets/section_img/imagen_problema.webp",
     imageAlt:
       "Problemas de desabasto y retrasos en envases PET que afectan la operación de empresas",
@@ -32,7 +32,7 @@ const data = [
       </>
     ),
     description:
-      "Fabricación propia y centros de distribución estratégicos para garantizar disponibilidad real. Te asesoramos para elegir el envase ideal, optimizando costos y eliminando intermediarios innecesarios.",
+      "Como líderes en la industria del packaging en México, contamos con fabricación propia y centros de distribución estratégicos para garantizar disponibilidad real. Te asesoramos para elegir el envase ideal, optimizando costos y eliminando intermediarios innecesarios.",
     imageSrc: "/assets/section_img/imagen_solution.webp",
     imageAlt:
       "Proveedor confiable de envases PET con stock disponible y distribución eficiente",

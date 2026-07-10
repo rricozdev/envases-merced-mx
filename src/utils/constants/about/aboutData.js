@@ -28,7 +28,7 @@ export const aboutData = {
   hero: {
     title: "Forjando el Futuro del Embalaje",
     description:
-      "Desde nuestra fundación, hemos estado comprometidos con la calidad y la innovación en cada envase que fabricamos y distribuimos.",
+      "Desde nuestra fundación, hemos sido un proveedor de envases PET comprometido con la calidad y la innovación en la industria del packaging en México.",
 
     /**
      * 🖼️ Imágenes responsivas
@@ -58,7 +58,7 @@ export const aboutData = {
      * Se permite uso de saltos de línea (\n\n)
      * para mantener legibilidad en el render.
      */
-    description: `Envases La Merced nació en el año 2021 como una empresa dedicada a la distribución de envases PET, con un objetivo claro: acercar productos de calidad directamente desde fábrica a nuestros clientes, de forma accesible, práctica y confiable.
+    description: `Envases La Merced nació en el año 2021 como un proveedor de envases PET comprometido con la industria del packaging en México, con un objetivo claro: acercar productos de calidad directamente desde fábrica a nuestros clientes, de forma accesible, práctica y confiable.
 
 Gracias a nuestras alianzas directas con fabricantes, ofrecemos envases PET con altos estándares de calidad, precios competitivos y una atención cercana y personalizada, enfocada en brindar soluciones reales a las necesidades de cada negocio.`,
 
@@ -78,7 +78,7 @@ Gracias a nuestras alianzas directas con fabricantes, ofrecemos envases PET con 
      * 🧾 Subtítulo usado como refuerzo SEO / UX
      */
     subtitle:
-      "Distribuimos soluciones prácticas en envases PET para negocios de todos los tamaños.",
+      "Distribuimos soluciones de packaging en envases PET para negocios de todos los tamaños en México.",
 
     description:
       "En Envases La Merced distribuimos envases PET para distintos usos comerciales e industriales, brindando soluciones eficientes a empresas y emprendedores que buscan calidad, disponibilidad y un servicio confiable.",

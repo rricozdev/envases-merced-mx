@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCart } from "@/components/providers/CartProvider";
 import { Trash } from "lucide-react";
 import { useState } from "react";
@@ -46,7 +47,7 @@ export default function CartItem({ item }) {
     <li className="group relative flex gap-4 p-4 transition-all duration-300">
       {/* Imagen con efecto hover */}
       <div className="relative h-20 w-20 shrink-0 p-3 overflow-hidden rounded-xl bg-white dark:to-gray-900 shadow-sm">
-        <img
+        <Image
           src={item.img.src}
           alt={item.img.alt}
           width={80}

@@ -6,6 +6,8 @@ import { Inter, Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import CartDrawer from "@/components/feature/cart/CartDrawer";
+import { webSiteSchema } from "@/components/schema/websiteSchema";
+import SchemaMarkup from "@/components/share/SchemaMarkup";
 
 // TODO: cambiar fuentes por la usadas
 const inter = Inter({
@@ -33,7 +35,7 @@ export const metadata = {
   },
 
   description:
-    "Fabricante de envases PET al mayoreo en México. Botellas, frascos y tapas para alimentos, cosméticos y limpieza. Amplio catálogo, precios competitivos y envío a todo México.",
+    "Proveedor de envases PET líder en la industria del packaging en México. Botellas, frascos y tapas al mayoreo para alimentos, cosméticos y limpieza. Amplio catálogo, precios competitivos y envío a todo México.",
 
   applicationName: "Envases La Merced",
 
@@ -161,6 +163,7 @@ export default function RootLayout({ children }) {
           />
         </noscript>
 
+        <SchemaMarkup schemas={[webSiteSchema]} />
         <Providers>
           <Header />
           <CartDrawer />
