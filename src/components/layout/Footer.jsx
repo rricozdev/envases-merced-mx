@@ -52,8 +52,8 @@ export default function Footer() {
             </div>
 
             <p className="text-base text-gray-300 max-w-xs">
-              Comprometidos con la calidad y el servicio, somos su socio
-              estratégico en soluciones de envasado.
+              Su proveedor de envases PET de confianza en la industria del
+              packaging en México. Calidad, servicio y presencia nacional.
             </p>
           </div>
 

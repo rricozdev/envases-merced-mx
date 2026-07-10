@@ -16,7 +16,7 @@ const heroData = {
     </>
   ),
   description:
-    "Con 5 sucursales estratégicas y una amplia variedad de presentaciones, llevamos el envase exacto que necesitas, rápido y sin intermediarios",
+    "Somos tu proveedor de envases PET en México. Con 5 sucursales estratégicas y una amplia variedad de presentaciones, llevamos el envase exacto que necesitas, rápido y sin intermediarios",
   srcImg: {
     desktop: "/assets/bg_img/bg2.webp",
     mobile: "/assets/bg_img/bg-mobile.webp",
@@ -27,9 +27,9 @@ const heroData = {
 export const metadata = {
   title: "Envases PET al Mayoreo en México | Botellas y Frascos | La Merced",
   description:
-    "Distribuidor líder de envases PET al mayoreo en México. Botellas, frascos y tapas para alimentos, cosméticos y limpieza. 5 sucursales, stock inmediato y precios competitivos",
+    "Proveedor de envases PET líder en México. Botellas, frascos y tapas al mayoreo para alimentos, cosméticos y limpieza. 5 sucursales, stock inmediato y precios competitivos en la industria del packaging.",
   keywords:
-    "envases PET, botellas PET mayoreo, frascos PET, tapas PET, envases México, distribuidor envases, botellas plásticas, empaques PET, envases cosméticos, envases alimentos",
+    "envases PET, botellas PET mayoreo, frascos PET, tapas PET, envases México, proveedor de envases PET, distribuidor envases, botellas plásticas, empaques PET, packaging industrial, envases cosméticos, envases alimentos, industria del packaging México",
 };
 
 export default function Home() {

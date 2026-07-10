@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { EtiquetaProducto } from "@/utils/constants/products/listProducts";
 import { CirclePlus } from "lucide-react";
@@ -16,7 +17,7 @@ export default function ProductCard({ product, onQuote }) {
     <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white dark:bg-bgdark-secondary shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
       {/* Imagen */}
       <div className="relative h-52 bg-slate-50 flex items-center justify-center ">
-        <img
+        <Image
           src={product.img.src ?? "/images/placeholder-product.webp"}
           alt={`${product.nombre} ${product.volumen}ml ${product.color}`}
           width={200}
