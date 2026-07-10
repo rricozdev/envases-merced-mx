@@ -6,7 +6,8 @@ module.exports = {
   sourceDir: "./.next",
   outDir: "./out",
   robotsTxtOptions: {
-    additionalSitemaps: ["https://envaseslamerced.mx/sitemap.xml"],
+    // Genera un doble index que confunde a Google console search
+    //additionalSitemaps: ["https://envaseslamerced.mx/sitemap.xml"],
   },
   transform: async (config, path) => {
     if (path === "/cdmx") {

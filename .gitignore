@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+out/
+out.zipdocs/
+analisis-visibilidad-ai.md
+out.zip
+
+docs/.htaccess_backup.odt
+docs/*.odt
+docs/*.xlsx

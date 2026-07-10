@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CircleUserRoundIcon } from "lucide-react";
 
 export default function CardOpinion({ opinion, avatar, name, position }) {
@@ -12,7 +13,7 @@ export default function CardOpinion({ opinion, avatar, name, position }) {
       <div className="flex items-center mt-auto">
         <div className="w-12 h-12 rounded-full overflow-hidden mr-4 shrink-0">
           {avatar ? (
-            <img
+            <Image
               src={avatar}
               alt={name}
               width={48}

@@ -1,16 +1,19 @@
 import { generateCatalogSchema } from "@/components/schema/catalogoSchema";
 import { organizationSchema } from "@/components/schema/organizationSchema";
+import { breadcrumbSchema } from "@/components/schema/breadcrumbSchema";
 import SchemaMarkup from "@/components/share/SchemaMarkup";
 import { CatalogoProductos } from "@/utils/constants/products/listProducts";
 
 export const metadata = {
   title: "Catálogo de Envases y Botellas PET | Envases La Merced",
   description:
-    "Descubre nuestra amplia gama de botellas, frascos y tapas PET de alta calidad para alimentos, cosméticos y productos de limpieza. Venta al mayoreo con envío a toda la República Mexicana.",
+    "Tu proveedor de envases PET de confianza. Descubre nuestra amplia gama de botellas, frascos y tapas PET de alta calidad para alimentos, cosméticos y productos de limpieza. Venta al mayoreo con envío a toda la República Mexicana.",
 
   keywords: [
     "envases PET",
     "envases plásticos México",
+    "proveedor de envases PET",
+    "packaging industrial",
     "soluciones de empaque",
     "empresa envases",
     "Catálogo de envases",
@@ -22,7 +25,7 @@ export const metadata = {
     url: "https://envaseslamerced.mx/catalogo",
     title: "Catálogo de Envases y Botellas PET | Envases La Merced",
     description:
-      "Explora nuestro catálogo completo de botellas, frascos y tapas PET. Calidad premium, venta al mayoreo con envío a toda la República Mexicana.",
+      "Explora el catálogo de tu proveedor de envases PET. Botellas, frascos y tapas PET de calidad premium. Venta al mayoreo con envío a toda la República Mexicana.",
     images: [
       {
         url: "https://envaseslamerced.mx/assets/bg_img/bg2.webp",
@@ -50,8 +53,14 @@ export const metadata = {
 };
 
 export default function layoutCatalogo({ children }) {
+  const breadcrumb = [
+    { name: "Inicio", url: "/" },
+    { name: "Catálogo", url: "/catalogo" },
+  ];
+
   const schemas = [
     organizationSchema,
+    breadcrumbSchema(breadcrumb),
     generateCatalogSchema(CatalogoProductos.productos),
   ];
 

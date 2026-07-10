@@ -10,5 +10,6 @@ export const navLinks = [
   { name: "Productos", href: "/catalogo" },
   { name: "Sucursales", submenu: sucursales },
   { name: "Nosotros", href: "/sobre-nosotros" },
+  { name: "Blog", href: "/blog" },
   { name: "Contacto", href: "/contacto" },
 ];

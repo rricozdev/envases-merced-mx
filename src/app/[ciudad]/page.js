@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { sucursalesData } from "@/utils/constants/sucursales";
 import SucursalView from "@/components/feature/sucursal/SucursalView";
 import { branchesSchema } from "@/components/schema/branchesSchema";
+import { breadcrumbSchema } from "@/components/schema/breadcrumbSchema";
 import SchemaMarkup from "@/components/share/SchemaMarkup";
 
 /**
@@ -80,10 +81,17 @@ export default async function CiudadPage({ params }) {
     notFound();
   }
 
+  const breadcrumb = [
+    { name: "Inicio", url: "/" },
+    { name: `Envases PET ${sucursal.name}`, url: `/${sucursal.path}` },
+  ];
+
   // Renderiza la vista (componente cliente)
   return (
     <>
-      <SchemaMarkup schemas={[branchesSchema(sucursal)]} />
+      <SchemaMarkup
+        schemas={[branchesSchema(sucursal), breadcrumbSchema(breadcrumb)]}
+      />
       <main className="bg-bgligth-secondary dark:bg-bgdark-main">
         <SucursalView sucursal={sucursal} />
       </main>
