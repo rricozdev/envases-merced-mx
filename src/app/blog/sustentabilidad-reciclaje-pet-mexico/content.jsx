@@ -1,3 +1,5 @@
+import { getRoute } from "@/utils/paths";
+
 export default function Content() {
   return (
     <>
@@ -198,8 +200,8 @@ export default function Content() {
         En Envases La Merced estamos comprometidos con la sustentabilidad en la
         industria del packaging en México. Ofrecemos opciones de envases PET
         diseñados para facilitar el reciclaje. Explora nuestro{" "}
-        <a href="/catalogo">catálogo de envases PET</a> o{" "}
-        <a href="/contacto">contáctanos</a> para conocer más sobre nuestras
+        <a href={getRoute("/catalogo")}>catálogo de envases PET</a> o{" "}
+        <a href={getRoute("/contacto")}>contáctanos</a> para conocer más sobre nuestras
         soluciones sustentables.
       </p>
     </>

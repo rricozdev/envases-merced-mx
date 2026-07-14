@@ -1,3 +1,5 @@
+import { getRoute } from "@/utils/paths";
+
 export default function Content() {
   return (
     <>
@@ -144,7 +146,7 @@ export default function Content() {
       </p>
       <p>
         En Envases La Merced contamos con un amplio{" "}
-        <a href="/catalogo">catálogo de envases PET</a> que cubre las
+        <a href={getRoute("/catalogo")}>catálogo de envases PET</a> que cubre las
         necesidades más comunes de la industria alimenticia, cosmética y de
         limpieza en México.
       </p>
@@ -255,7 +257,7 @@ export default function Content() {
       </p>
       <p>
         Si estás buscando un proveedor de envases PET confiable en México,{" "}
-        <a href="/contacto">contáctanos</a> hoy. En Envases La Merced tenemos
+        <a href={getRoute("/contacto")}>contáctanos</a> hoy. En Envases La Merced tenemos
         la solución de empaque que tu negocio necesita.
       </p>
     </>

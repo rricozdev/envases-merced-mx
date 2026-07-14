@@ -10,16 +10,17 @@ module.exports = {
     //additionalSitemaps: ["https://envaseslamerced.mx/sitemap.xml"],
   },
   transform: async (config, path) => {
+    const loc = path === "/" ? path : `${path}.html`;
     if (path === "/cdmx") {
       return {
-        loc: path,
+        loc,
         changefreq: "weekly",
         priority: 0.9,
         lastmod: new Date().toISOString(),
       };
     }
     return {
-      loc: path,
+      loc,
       changefreq: "weekly",
       priority: 0.7,
     };

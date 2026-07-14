@@ -17,14 +17,14 @@ export const blogPostingSchema = ({
     name: author,
     url: "https://envaseslamerced.mx",
   },
-  url: `https://envaseslamerced.mx/blog/${slug}`,
+  url: `https://envaseslamerced.mx/blog/${slug}.html`,
   image: image ? `https://envaseslamerced.mx${image}` : undefined,
   publisher: {
     "@id": "https://envaseslamerced.mx/#organization",
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": `https://envaseslamerced.mx/blog/${slug}#webpage`,
+    "@id": `https://envaseslamerced.mx/blog/${slug}.html#webpage`,
   },
 });
 
@@ -32,7 +32,7 @@ export const blogWebSiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": "https://envaseslamerced.mx/blog#website",
-  url: "https://envaseslamerced.mx/blog",
+  url: "https://envaseslamerced.mx/blog.html",
   name: "Blog de Envases La Merced",
   description:
     "Artículos y guías sobre envases PET, industria del packaging en México y soluciones de empaque para tu negocio.",

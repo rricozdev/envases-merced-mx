@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { getRoute } from "@/utils/paths";
 
 export default function BranchCard({ city, address, phone, path }) {
   return (
-    <Link href={`/${path}`}>
+    <Link href={getRoute(`/${path}`)}>
       <article className="p-5 rounded-lg border border-[var(--color-border-default)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-soft)] transition">
         {/* Ciudad */}
         <p className="font-bold text-txtligth-primary dark:text-txtdark-primary">

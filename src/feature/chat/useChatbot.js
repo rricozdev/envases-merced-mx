@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getBotResponse } from "./conversationEngine";
 import { safeWhatsAppUrl } from "@/utils/whatsapp";
+import { getRoute } from "@/utils/paths";
 
 export function useChatbot() {
   const [messages, setMessages] = useState([]);
@@ -45,7 +46,7 @@ export function useChatbot() {
        */
       if (botData?.payload?.type === "catalog") {
         if (botData.payload.url) {
-          window.open(botData.payload.url, "_blank");
+          window.open(getRoute(botData.payload.url), "_blank");
         }
       }
 

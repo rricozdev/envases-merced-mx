@@ -20,13 +20,16 @@ Options -MultiViews
   RewriteEngine On
   RewriteBase /
 
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^(.+)/$ $1 [R=301,L]
+
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
 
   RewriteRule ^$ index.html [L]
 
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+)$ $1.html [L]
 
   RewriteRule ^.*$ 404.html [L]
 </IfModule>

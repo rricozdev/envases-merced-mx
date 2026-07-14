@@ -1,4 +1,5 @@
 import { sucursalesData } from "./sucursales";
+import { getRoute } from "@/utils/paths";
 
 export const sucursales = sucursalesData.map(({ name, path }) => ({
   name,
@@ -7,9 +8,9 @@ export const sucursales = sucursalesData.map(({ name, path }) => ({
 
 export const navLinks = [
   { name: "Inicio", href: "/" },
-  { name: "Productos", href: "/catalogo" },
+  { name: "Productos", href: getRoute("/catalogo") },
   { name: "Sucursales", submenu: sucursales },
-  { name: "Nosotros", href: "/sobre-nosotros" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contacto", href: "/contacto" },
+  { name: "Nosotros", href: getRoute("/sobre-nosotros") },
+  { name: "Blog", href: getRoute("/blog") },
+  { name: "Contacto", href: getRoute("/contacto") },
 ];

@@ -1,3 +1,5 @@
+import { getRoute } from "@/utils/paths";
+
 export default function Content() {
   return (
     <>
@@ -193,8 +195,8 @@ export default function Content() {
         Si estás desarrollando una línea de cosméticos o cuidado personal en
         México, elegir el envase correcto es tan importante como la fórmula
         misma. En Envases La Merced te ofrecemos asesoría personalizada y un
-        amplio <a href="/catalogo">catálogo de envases PET</a>.{" "}
-        <a href="/contacto">Contáctanos</a> para solicitar muestras o
+        amplio <a href={getRoute("/catalogo")}>catálogo de envases PET</a>.{" "}
+        <a href={getRoute("/contacto")}>Contáctanos</a> para solicitar muestras o
         cotización.
       </p>
     </>

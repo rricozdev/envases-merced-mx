@@ -15,7 +15,7 @@ export const webSiteSchema = {
     target: {
       "@type": "EntryPoint",
       urlTemplate:
-        "https://envaseslamerced.mx/catalogo?search={search_term_string}",
+        "https://envaseslamerced.mx/catalogo.html?search={search_term_string}",
     },
     "query-input": "required name=search_term_string",
   },

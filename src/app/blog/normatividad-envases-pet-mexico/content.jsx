@@ -1,3 +1,5 @@
+import { getRoute } from "@/utils/paths";
+
 export default function Content() {
   return (
     <>
@@ -228,8 +230,8 @@ export default function Content() {
         altos estándares de calidad y normatividad mexicana. Si necesitas
         asesoría sobre cuál envase es el adecuado para tu producto y cómo
         garantizar el cumplimiento normativo,{" "}
-        <a href="/contacto">contáctanos</a> o explora nuestro{" "}
-        <a href="/catalogo">catálogo de envases PET</a>.
+        <a href={getRoute("/contacto")}>contáctanos</a> o explora nuestro{" "}
+        <a href={getRoute("/catalogo")}>catálogo de envases PET</a>.
       </p>
     </>
   );
