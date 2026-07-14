@@ -1,3 +1,5 @@
+import { getRoute } from "@/utils/paths";
+
 export default function Content() {
   return (
     <>
@@ -304,8 +306,8 @@ export default function Content() {
       </p>
       <p>
         Explora nuestro{" "}
-        <a href="/catalogo">catálogo de envases PET</a> o{" "}
-        <a href="/contacto">contáctanos</a> para recibir asesoría personalizada
+        <a href={getRoute("/catalogo")}>catálogo de envases PET</a> o{" "}
+        <a href={getRoute("/contacto")}>contáctanos</a> para recibir asesoría personalizada
         sin costo.
       </p>
     </>

@@ -9,6 +9,8 @@ import CartDrawer from "@/components/feature/cart/CartDrawer";
 import { webSiteSchema } from "@/components/schema/websiteSchema";
 import SchemaMarkup from "@/components/share/SchemaMarkup";
 
+import { GoogleTagManager } from "@next/third-parties/google";
+
 // TODO: cambiar fuentes por la usadas
 const inter = Inter({
   variable: "--font-inter",
@@ -149,7 +151,7 @@ export default function RootLayout({ children }) {
         />
 
         {/* GOOGLE TAG MANAGER */}
-        <Script
+        {/* <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtm.js?id=GTM-W4JS5W3L"
         />
@@ -161,7 +163,8 @@ export default function RootLayout({ children }) {
             width="0"
             className="hidden"
           />
-        </noscript>
+        </noscript> */}
+        <GoogleTagManager gtmId="GTM-W4JS5W3L" />
 
         <SchemaMarkup schemas={[webSiteSchema]} />
         <Providers>

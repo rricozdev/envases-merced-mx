@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
     title: sucursal.seo.title,
     description: sucursal.seo.description,
     alternates: {
-      canonical: `https://envaseslamerced.mx/${sucursal.path}`,
+      canonical: `https://envaseslamerced.mx/${sucursal.path}.html`,
     },
   };
 }
@@ -52,7 +52,9 @@ export async function generateMetadata({ params }) {
  * /veracruz
  * etc.
  */
-export async function generateStaticParams() {
+export const dynamicParams = false;
+
+export function generateStaticParams() {
   return sucursalesData.map((s) => ({
     ciudad: s.path,
   }));
@@ -83,7 +85,7 @@ export default async function CiudadPage({ params }) {
 
   const breadcrumb = [
     { name: "Inicio", url: "/" },
-    { name: `Envases PET ${sucursal.name}`, url: `/${sucursal.path}` },
+    { name: `Envases PET ${sucursal.name}`, url: `/${sucursal.path}.html` },
   ];
 
   // Renderiza la vista (componente cliente)

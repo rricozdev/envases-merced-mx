@@ -17,6 +17,7 @@
  */
 
 import { navLinks, sucursales } from "@/utils/constants/navLinks";
+import { getRoute } from "@/utils/paths";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -112,7 +113,7 @@ export default function Footer() {
               {sucursales.map((sucursal) => (
                 <li key={sucursal.name}>
                   <Link
-                    href={`/${sucursal.path}`}
+                    href={getRoute(`/${sucursal.path}`)}
                     className="hover:text-brand-accent-hover transition-colors"
                   >
                     {sucursal.name}
