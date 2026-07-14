@@ -4,7 +4,7 @@ export const branchesSchema = (sucursal) => {
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "WholesaleStore"],
-    "@id": `https://envaseslamerced.mx/${sucursal.path}#localbusiness`,
+    "@id": `https://envaseslamerced.mx/${sucursal.path}.html#localbusiness`,
 
     name: `Envases La Merced ${sucursal.name}`,
 
@@ -23,7 +23,7 @@ export const branchesSchema = (sucursal) => {
 
     email: Array.isArray(sucursal.email) ? sucursal.email[0] : sucursal.email,
 
-    url: `https://envaseslamerced.mx/${sucursal.path}`,
+    url: `https://envaseslamerced.mx/${sucursal.path}.html`,
     sameAs: [sucursal.facebookUrl],
 
     description: sucursal.seo?.description || "",

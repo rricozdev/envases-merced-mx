@@ -8,14 +8,14 @@ export const metadata = {
   description:
     "Solicita tu cotización de envases PET al mayoreo con tu proveedor de confianza en la industria del packaging en México. Contáctanos por WhatsApp, teléfono o correo.",
   alternates: {
-    canonical: "https://envaseslamerced.mx/contacto",
+    canonical: "https://envaseslamerced.mx/contacto.html",
   },
 };
 
 export default function Page() {
   const breadcrumb = [
     { name: "Inicio", url: "/" },
-    { name: "Contacto", url: "/contacto" },
+    { name: "Contacto", url: "/contacto.html" },
   ];
 
   return (

@@ -2,6 +2,7 @@
 import Button from "@/components/ui/Button";
 import { openWhatsApp } from "@/feature/chat/whatsappAction";
 import { BRANCH_PHONES } from "@/utils/constants/branchPhones";
+import { getRoute } from "@/utils/paths";
 import { useRouter } from "next/navigation";
 
 export function ContentBtnHero() {
@@ -30,7 +31,7 @@ export function ContentBtnHero() {
         type="secondary"
         variant="outline"
         size="lg"
-        onClick={() => router.push("/catalogo")}
+        onClick={() => router.push(getRoute("/catalogo"))}
       >
         Ver catalogo
       </Button>

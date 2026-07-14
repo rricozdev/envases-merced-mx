@@ -22,7 +22,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://envaseslamerced.mx/catalogo",
+    url: "https://envaseslamerced.mx/catalogo.html",
     title: "Catálogo de Envases y Botellas PET | Envases La Merced",
     description:
       "Explora el catálogo de tu proveedor de envases PET. Botellas, frascos y tapas PET de calidad premium. Venta al mayoreo con envío a toda la República Mexicana.",
@@ -48,14 +48,14 @@ export const metadata = {
 
   robots: "index, follow",
   alternates: {
-    canonical: "https://envaseslamerced.mx/catalogo",
+    canonical: "https://envaseslamerced.mx/catalogo.html",
   },
 };
 
 export default function layoutCatalogo({ children }) {
   const breadcrumb = [
     { name: "Inicio", url: "/" },
-    { name: "Catálogo", url: "/catalogo" },
+    { name: "Catálogo", url: "/catalogo.html" },
   ];
 
   const schemas = [

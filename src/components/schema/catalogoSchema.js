@@ -28,7 +28,7 @@ Piezas por paquete: ${product.piezasPorPaquete}.
       image: product.img?.src || "",
 
       // ✅ URL amigable
-      url: `https://envaseslamerced.mx/catalogo?producto=${encodeURIComponent(product.id)}`,
+      url: `https://envaseslamerced.mx/catalogo.html?producto=${encodeURIComponent(product.id)}`,
 
       // ✅ Extras importantes para Google
       sku: product.id,

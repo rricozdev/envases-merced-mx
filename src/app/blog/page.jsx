@@ -5,6 +5,7 @@ import BlogCard from "@/components/ui/BlogCard";
 import Container from "@/components/ui/Container";
 import ContentSection from "@/components/ui/ContentSection";
 import { blogPosts } from "@/utils/constants/blogPosts";
+import { getRoute } from "@/utils/paths";
 
 const heroFade = {
   hidden: { opacity: 0, y: 20 },
@@ -116,7 +117,7 @@ export default function BlogPage() {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a
-              href="/catalogo"
+              href={getRoute("/catalogo")}
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-brand-primary transition-all hover:bg-white/90 hover:scale-105 font-primary"
             >
               Ver catálogo
@@ -135,7 +136,7 @@ export default function BlogPage() {
               </svg>
             </a>
             <a
-              href="/contacto"
+              href={getRoute("/contacto")}
               className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:scale-105 font-primary"
             >
               Contactar

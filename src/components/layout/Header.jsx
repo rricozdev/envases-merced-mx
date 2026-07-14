@@ -2,6 +2,7 @@
 
 import { navLinks } from "@/utils/constants/navLinks.js";
 import { OVERLAYS } from "@/utils/constants/overlays.js";
+import { getRoute } from "@/utils/paths";
 import { ChevronDown, Menu, Moon, ShoppingCart, Sun, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +17,7 @@ const useActiveRoute = () => {
   const pathname = usePathname();
 
   const isActive = (path) => path && pathname === path;
-  const isSubActive = (subPath) => pathname === `/${subPath}`;
+  const isSubActive = (subPath) => pathname === getRoute(`/${subPath}`);
 
   return { pathname, isActive, isSubActive };
 };
@@ -73,7 +74,7 @@ export default function Header() {
                       <button
                         className={`flex items-center gap-1 text-base font-primary font-semibold transition ${
                           link.submenu?.some(
-                            (item) => pathname === `/${item.path}`,
+                            (item) => pathname === getRoute(`/${item.path}`),
                           )
                             ? "text-brand-accent-hover"
                             : "hover:text-brand-accent-hover text-brand-primary dark:text-txtdark-primary"
@@ -90,7 +91,7 @@ export default function Header() {
                         {link.submenu.map((item, idx) => (
                           <li key={idx}>
                             <Link
-                              href={`/${item.path}`}
+                              href={getRoute(`/${item.path}`)}
                               className={`block px-4 py-3 text-sm font-primary font-semibold transition ${
                                 isSubActive(item.path)
                                   ? "text-brand-accent"
@@ -221,7 +222,7 @@ export default function Header() {
                         {link.submenu.map((item, idx) => (
                           <li key={idx}>
                             <Link
-                              href={`/${item.path}`}
+                              href={getRoute(`/${item.path}`)}
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-1.5 px-2 rounded-md text-sm hover:bg-brand-accent/10 transition-colors"
                             >

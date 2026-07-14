@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import TableOfContents from "@/components/ui/TableOfContents";
 import ReadingProgress from "@/components/ui/ReadingProgress";
+import { getRoute } from "@/utils/paths";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -14,7 +15,7 @@ const fadeUp = {
 };
 
 export default function BlogPostView({ post, children }) {
-  const shareUrl = `https://envaseslamerced.mx/blog/${post.slug}`;
+  const shareUrl = `https://envaseslamerced.mx/blog/${post.slug}.html`;
 
   return (
     <>
@@ -180,7 +181,7 @@ export default function BlogPostView({ post, children }) {
                   </p>
                   <div className="mt-5 flex flex-wrap justify-center gap-3">
                     <a
-                      href="/catalogo"
+                      href={getRoute("/catalogo")}
                       className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-brand-primary transition-all hover:bg-white/90 hover:scale-105 font-primary"
                     >
                       Ver catálogo
@@ -189,7 +190,7 @@ export default function BlogPostView({ post, children }) {
                       </svg>
                     </a>
                     <a
-                      href="/contacto"
+                      href={getRoute("/contacto")}
                       className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:scale-105 font-primary"
                     >
                       Solicitar cotización
@@ -248,7 +249,7 @@ export default function BlogPostView({ post, children }) {
                 </div>
 
                 <a
-                  href="/blog"
+                  href={getRoute("/blog")}
                   className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-brand-accent transition-colors hover:bg-brand-accent/5 font-primary"
                 >
                   <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

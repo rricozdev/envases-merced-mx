@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postbuild": "next-sitemap --config next-sitemap.config.js"
+    "postbuild": "next-sitemap --config next-sitemap.config.js && rm -f out/.htaccess"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^5.2.2",
+    "@next/third-parties": "^16.2.10",
     "@tabler/icons-react": "^3.41.1",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.8.0",

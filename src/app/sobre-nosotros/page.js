@@ -25,7 +25,7 @@ export const metadata = {
   // Open Graph (Social Media)
   openGraph: {
     type: "website",
-    url: "https://envaseslamerced.mx/sobre-nosotros",
+    url: "https://envaseslamerced.mx/sobre-nosotros.html",
     title: "Sobre Nosotros | Envases la Merced - Soluciones en Envases PET",
     description:
       "Conoce a tu proveedor de envases PET. Descubre nuestra misión, visión y valores en la industria del packaging. Presencia en múltiples ciudades de México.",
@@ -53,14 +53,14 @@ export const metadata = {
   // Otros meta tags
   robots: "index, follow",
   alternates: {
-    canonical: "https://envaseslamerced.mx/sobre-nosotros",
+    canonical: "https://envaseslamerced.mx/sobre-nosotros.html",
   },
 };
 
 export default function SobreNosotrosPage() {
   const breadscrumb = [
     { name: "inicio", url: "/" },
-    { name: "Sobre Nosotros", url: "/sobre-nosotros" },
+    { name: "Sobre Nosotros", url: "/sobre-nosotros.html" },
   ];
 
   const faqSchemaAbout = {

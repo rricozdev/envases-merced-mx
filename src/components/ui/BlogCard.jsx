@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { getRoute } from "@/utils/paths";
 import { IconBottle, IconBuildingStore } from "@tabler/icons-react";
 
 const CATEGORY_ICONS = {
@@ -55,7 +56,7 @@ export default function BlogCard({ post, index = 0 }) {
       <div className="flex flex-1 flex-col gap-3 p-5">
         <h3 className="text-lg font-bold leading-snug text-txtligth-primary dark:text-txtdark-primary font-primary transition-colors group-hover:text-brand-accent">
           <Link
-            href={`/blog/${post.slug}`}
+            href={getRoute(`/blog/${post.slug}`)}
             className="after:absolute after:inset-0"
           >
             {post.title}

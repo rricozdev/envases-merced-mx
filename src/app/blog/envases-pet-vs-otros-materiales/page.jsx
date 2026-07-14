@@ -14,7 +14,7 @@ export const metadata = {
   keywords: post.tags,
   openGraph: {
     type: "article",
-    url: `https://envaseslamerced.mx/blog/${post.slug}`,
+    url: `https://envaseslamerced.mx/blog/${post.slug}.html`,
     title: post.title,
     description: post.description,
     images: [
@@ -38,15 +38,15 @@ export const metadata = {
   },
   robots: "index, follow",
   alternates: {
-    canonical: `https://envaseslamerced.mx/blog/${post.slug}`,
+    canonical: `https://envaseslamerced.mx/blog/${post.slug}.html`,
   },
 };
 
 export default function PostPage() {
   const breadcrumb = [
     { name: "Inicio", url: "/" },
-    { name: "Blog", url: "/blog" },
-    { name: post.title, url: `/blog/${post.slug}` },
+    { name: "Blog", url: "/blog.html" },
+    { name: post.title, url: `/blog/${post.slug}.html` },
   ];
 
   return (

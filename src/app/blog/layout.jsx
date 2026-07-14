@@ -17,7 +17,7 @@ export const metadata = {
   ],
   openGraph: {
     type: "website",
-    url: "https://envaseslamerced.mx/blog",
+    url: "https://envaseslamerced.mx/blog.html",
     title: "Blog de Envases PET | Guías y Artículos | Envases La Merced",
     description:
       "Contenido especializado sobre envases PET, packaging industrial y soluciones de empaque en México.",
@@ -41,14 +41,14 @@ export const metadata = {
   },
   robots: "index, follow",
   alternates: {
-    canonical: "https://envaseslamerced.mx/blog",
+    canonical: "https://envaseslamerced.mx/blog.html",
   },
 };
 
 export default function BlogLayout({ children }) {
   const breadcrumb = [
     { name: "Inicio", url: "/" },
-    { name: "Blog", url: "/blog" },
+    { name: "Blog", url: "/blog.html" },
   ];
 
   return (
