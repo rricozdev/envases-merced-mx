@@ -1,13 +1,13 @@
 "use client";
 
-import CardOpinion from "@/components/ui/CardOpinion";
+import dynamic from "next/dynamic";
 import Container from "@/components/ui/Container";
 import ContentSection from "@/components/ui/ContentSection";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-
-import "swiper/css";
+const OpinionCarousel = dynamic(() => import("./OpinionCarousel"), {
+  ssr: false,
+  loading: () => <div className="min-h-[280px]" aria-hidden="true" />,
+});
 
 const opinions = [
   {
@@ -70,33 +70,7 @@ export default function OpinionSection() {
         }
         description="Calidad, precio y cumplimiento. Descubre por qué cada vez más negocios confían en nuestros envases."
       >
-        <Swiper
-          spaceBetween={20}
-          loop={true}
-          modules={[Autoplay]}
-          speed={2000}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          breakpoints={{
-            320: { slidesPerView: 1, spaceBetween: 20 },
-            640: { slidesPerView: 2, spaceBetween: 30 },
-            1024: { slidesPerView: 3, spaceBetween: 40 },
-          }}
-        >
-          {opinions.map(({ opinion, author }, index) => (
-            <SwiperSlide key={index}>
-              <CardOpinion
-                opinion={opinion}
-                avatar={author.avatar}
-                name={author.name}
-                position={author.position}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <OpinionCarousel opinions={opinions} />
       </ContentSection>
     </Container>
   );
