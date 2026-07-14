@@ -1,7 +1,6 @@
 "use client";
 
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { CartProvider } from "./CartProvider";
 import { ThemeProvider } from "./ThemeProvider";
 import { UIProvider } from "./UIProvider";
