@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Hero({
   srcImg,
   title,
@@ -38,21 +36,22 @@ export default function Hero({
     <section
       className={`relative overflow-hidden ${heroTypes[type]} ${className}`}
     >
-      <Image
-        src={desktopImage}
-        alt={alt}
-        priority
-        fill
-        className={`hidden md:block ${imgClassName || "object-cover object-center"}`}
-      />
-
-      <Image
-        src={mobileImage}
-        alt={alt}
-        priority
-        fill
-        className={`block md:hidden ${imgClassName || "object-cover object-center"}`}
-      />
+      {/**
+       * Imagen LCP:
+       * - <picture> con art direction (una sola descarga por viewport)
+       * - fetchPriority="high" + loading="eager" para descubrimiento temprano
+       */}
+      <picture>
+        <source media="(min-width: 768px)" srcSet={desktopImage} />
+        <img
+          src={mobileImage}
+          alt={alt}
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          className={`absolute inset-0 h-full w-full ${imgClassName || "object-cover object-center"}`}
+        />
+      </picture>
 
       {/* Overlay */}
       {overlay && <div className="absolute inset-0 z-10 bg-black/50" />}
