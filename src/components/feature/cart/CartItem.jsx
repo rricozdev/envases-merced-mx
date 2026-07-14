@@ -71,9 +71,9 @@ export default function CartItem({ item }) {
           <button
             onClick={() => removeFromCart(item.id)}
             className=" cursor-pointer shrink-0 p-2 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all duration-200 -mt-1"
-            aria-label="Eliminar producto"
+            aria-label={`Eliminar ${item.nombre} del carrito`}
           >
-            <Trash size={20} />
+            <Trash size={20} aria-hidden="true" focusable="false" />
           </button>
         </div>
 
@@ -100,6 +100,8 @@ export default function CartItem({ item }) {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
               >
                 <path
                   strokeLinecap="round"
@@ -117,6 +119,7 @@ export default function CartItem({ item }) {
               value={qty}
               onChange={handleChange}
               onBlur={handleBlur}
+              aria-label={`Cantidad de ${item.nombre}`}
               className="w-12 text-center text-sm font-medium text-gray-900 dark:text-white bg-transparent border-x border-gray-200 dark:border-gray-700 focus:outline-none focus:bg-blue-50 dark:focus:bg-blue-900/20 transition-colors"
             />
 
@@ -130,6 +133,8 @@ export default function CartItem({ item }) {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
               >
                 <path
                   strokeLinecap="round"

@@ -30,6 +30,7 @@ export default function Header() {
   const { pathname, isActive, isSubActive } = useActiveRoute();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState(null);
 
   const cartCount = useMemo(() => cart.length, [cart]);
 
@@ -65,13 +66,30 @@ export default function Header() {
           </Link>
 
           {/* NAV DESKTOP */}
-          <nav className="hidden lg:flex items-center gap-10">
+          <nav
+            className="hidden lg:flex items-center gap-10"
+            aria-label="Navegación principal"
+          >
             <ul className="flex items-center gap-10">
               {navLinks.map((link, index) => (
-                <li key={index} className="relative group">
+                <li
+                  key={index}
+                  className="relative group"
+                  onMouseEnter={() => link.submenu && setOpenSubmenu(index)}
+                  onMouseLeave={() => link.submenu && setOpenSubmenu(null)}
+                >
                   {link.submenu ? (
                     <>
                       <button
+                        aria-expanded={openSubmenu === index}
+                        aria-haspopup="true"
+                        aria-controls={`submenu-${index}`}
+                        onClick={() =>
+                          setOpenSubmenu(openSubmenu === index ? null : index)
+                        }
+                        onKeyDown={(e) => {
+                          if (e.key === "Escape") setOpenSubmenu(null);
+                        }}
                         className={`flex items-center gap-1 text-base font-primary font-semibold transition ${
                           link.submenu?.some(
                             (item) => pathname === getRoute(`/${item.path}`),
@@ -83,15 +101,26 @@ export default function Header() {
                         {link.name}
                         <ChevronDown
                           size={16}
-                          className="transition-transform group-hover:rotate-180"
+                          aria-hidden="true"
+                          className={`transition-transform ${
+                            openSubmenu === index ? "rotate-180" : ""
+                          }`}
                         />
                       </button>
 
-                      <ul className="absolute top-full left-0 mt-2 w-56 rounded-lg shadow-lg bg-white dark:bg-bgdark-main border border-light-border dark:border-dark-border opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
+                      <ul
+                        id={`submenu-${index}`}
+                        className={`absolute top-full left-0 mt-2 w-56 rounded-lg shadow-lg bg-white dark:bg-bgdark-main border border-light-border dark:border-dark-border transition-all duration-200 z-50 ${
+                          openSubmenu === index
+                            ? "opacity-100 visible translate-y-0"
+                            : "opacity-0 invisible translate-y-2"
+                        }`}
+                      >
                         {link.submenu.map((item, idx) => (
                           <li key={idx}>
                             <Link
                               href={getRoute(`/${item.path}`)}
+                              onClick={() => setOpenSubmenu(null)}
                               className={`block px-4 py-3 text-sm font-primary font-semibold transition ${
                                 isSubActive(item.path)
                                   ? "text-brand-accent"
@@ -128,6 +157,9 @@ export default function Header() {
               onClick={toggleTheme}
               variant="ghost"
               size="sm"
+              ariaLabel={
+                isDark ? "Activar modo claro" : "Activar modo oscuro"
+              }
               icon={
                 isDark ? (
                   <Sun
@@ -150,6 +182,9 @@ export default function Header() {
                 onClick={() => toggle(OVERLAYS.CART)}
                 variant="ghost"
                 size="sm"
+                ariaLabel={`Abrir carrito de cotización${
+                  cartCount > 0 ? ` (${cartCount} productos)` : ""
+                }`}
                 icon={
                   <ShoppingCart
                     size={25}
@@ -158,7 +193,10 @@ export default function Header() {
                 }
               />
               {cartCount > 0 && (
-                <span className="absolute -top-1 left-5 h-5 min-w-5 px-1.5 flex items-center justify-center rounded-full bg-red-500 text-[11px] font-bold text-white animate-bounce">
+                <span
+                  aria-hidden="true"
+                  className="absolute -top-1 left-5 h-5 min-w-5 px-1.5 flex items-center justify-center rounded-full bg-red-500 text-[11px] font-bold text-white animate-bounce"
+                >
                   {cartCount > 99 ? "99+" : cartCount}
                 </span>
               )}
@@ -169,6 +207,13 @@ export default function Header() {
               onClick={toggleMobileMenu}
               variant="ghost"
               size="sm"
+              ariaLabel={
+                mobileMenuOpen
+                  ? "Cerrar menú de navegación"
+                  : "Abrir menú de navegación"
+              }
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
               icon={
                 mobileMenuOpen ? (
                   <X
@@ -193,6 +238,7 @@ export default function Header() {
       {/* OVERLAY - Solo debe cubrir el área debajo del header y permitir clics fuera del menú */}
       {mobileMenuOpen && (
         <div
+          aria-hidden="true"
           className="fixed top-20 inset-x-0 bottom-0 z-40 lg:hidden pointer-events-auto"
           onClick={() => setMobileMenuOpen(false)}
         />
@@ -200,6 +246,9 @@ export default function Header() {
 
       {/* MOBILE MENU */}
       <div
+        id="mobile-menu"
+        aria-hidden={!mobileMenuOpen}
+        inert={!mobileMenuOpen}
         className={`lg:hidden fixed top-20 left-0 w-full z-50 transition-[opacity,transform] duration-300 ${
           mobileMenuOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
@@ -207,7 +256,7 @@ export default function Header() {
         }`}
       >
         <div className="bg-bgligth-main dark:bg-bgdark-main border-t border-light-border dark:border-dark-border shadow-lg">
-          <nav className="max-w-7xl mx-auto">
+          <nav className="max-w-7xl mx-auto" aria-label="Navegación móvil">
             <ul className="flex flex-col gap-2 p-4">
               {navLinks.map((link, index) => (
                 <li key={index}>

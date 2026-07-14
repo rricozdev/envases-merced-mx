@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 /**
  * 🗺️ COMPONENTE: CatalogoBreadcrumbs
  *
@@ -14,12 +16,12 @@ export default function CatalogoBreadcrumbs({ categories = [] }) {
     >
       <ol className="flex flex-wrap gap-2">
         <li>
-          <a
+          <Link
             href="/"
             className="hover:text-brand-primary transition-colors"
           >
             Inicio
-          </a>
+          </Link>
         </li>
         <li className="before:content-['/'] before:mr-2">
           <span className="font-semibold">Catálogo</span>

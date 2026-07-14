@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <>
       <SchemaMarkup schemas={[organizationSchema]} />
-      <main className="flex flex-col items-center justify-center min-h-screen bg-bgligth-main dark:bg-bgdark-main">
+      <main id="main-content" className="flex flex-col items-center justify-center min-h-screen bg-bgligth-main dark:bg-bgdark-main">
         <AnimatedHero
           srcImg={heroData.srcImg}
           title={heroData.title}

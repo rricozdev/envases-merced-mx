@@ -24,8 +24,9 @@ export default function CartHeader() {
         variant="outline"
         size="sm"
         iconOnly
+        ariaLabel="Cerrar carrito de cotización"
         className=" cursor-pointer w-20 shrink-0 dark:text-txtdark-primary text-txtligth-primary dark:border-txtdark-primary  dark:hover:bg-txtdark-primary  dark:hover:text-txtligth-primary"
-        icon={<X size={20} />}
+        icon={<X size={20} aria-hidden="true" focusable="false" />}
         onClick={() => close(OVERLAYS.CART)}
       />
     </header>
