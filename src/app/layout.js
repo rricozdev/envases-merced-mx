@@ -1,6 +1,6 @@
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
-import ChatbotWidget from "@/feature/chat/ChatbotWidget";
+import ChatbotWidget from "@/feature/chat/ChatbotWidgetLazy";
 import Providers from "@/components/providers/Providers";
 import { Inter, Montserrat } from "next/font/google";
 import Script from "next/script";
@@ -8,8 +8,7 @@ import "./globals.css";
 import CartDrawer from "@/components/feature/cart/CartDrawer";
 import { webSiteSchema } from "@/components/schema/websiteSchema";
 import SchemaMarkup from "@/components/share/SchemaMarkup";
-
-import { GoogleTagManager } from "@next/third-parties/google";
+import LazyGTM from "@/components/share/LazyGTM";
 
 // TODO: cambiar fuentes por la usadas
 const inter = Inter({
@@ -164,7 +163,7 @@ export default function RootLayout({ children }) {
             className="hidden"
           />
         </noscript> */}
-        <GoogleTagManager gtmId="GTM-W4JS5W3L" />
+        <LazyGTM />
 
         <SchemaMarkup schemas={[webSiteSchema]} />
         <a
