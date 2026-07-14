@@ -94,7 +94,7 @@ export default async function CiudadPage({ params }) {
       <SchemaMarkup
         schemas={[branchesSchema(sucursal), breadcrumbSchema(breadcrumb)]}
       />
-      <main className="bg-bgligth-secondary dark:bg-bgdark-main">
+      <main id="main-content" className="bg-bgligth-secondary dark:bg-bgdark-main">
         <SucursalView sucursal={sucursal} />
       </main>
     </>

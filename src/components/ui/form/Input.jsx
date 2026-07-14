@@ -1,4 +1,8 @@
+import { useId } from "react";
+
 export default function Input({ label, error, ...props }) {
+  const errorId = useId();
+
   return (
     <label className="flex flex-col">
       <span className="pb-2 text-base font-medium text-secondary dark:text-dark-text">
@@ -7,6 +11,8 @@ export default function Input({ label, error, ...props }) {
 
       <input
         {...props}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? errorId : undefined}
         className={`form-input h-14 rounded-lg border px-[15px] outline-none transition-colors
     ${
       error
@@ -16,7 +22,11 @@ export default function Input({ label, error, ...props }) {
     bg-white dark:bg-neutral-900/50`}
       />
 
-      {error && <span className="mt-1 text-sm text-red-600">{error}</span>}
+      {error && (
+        <span id={errorId} role="alert" className="mt-1 text-sm text-red-600">
+          {error}
+        </span>
+      )}
     </label>
   );
 }

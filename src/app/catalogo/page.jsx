@@ -36,7 +36,7 @@ export default function CatalogoPage() {
 
   return (
     <>
-      <main className="bg-bgligth-main dark:bg-bgdark-main">
+      <main id="main-content" className="bg-bgligth-main dark:bg-bgdark-main">
         {/* SECCIÓN: HEADER */}
         <CatalogoHeader productsCount={filteredProducts.length} />
 

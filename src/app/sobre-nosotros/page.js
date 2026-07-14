@@ -127,7 +127,7 @@ export default function SobreNosotrosPage() {
           faqSchemaAbout,
         ]}
       />
-      <main>
+      <main id="main-content">
         <AboutView data={aboutData} />
       </main>
     </>

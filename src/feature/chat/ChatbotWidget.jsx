@@ -79,6 +79,10 @@ export default function ChatbotWidget() {
           <motion.button
             key="whatsapp-fab"
             onClick={() => setShowWhatsAppMenu((prev) => !prev)}
+            aria-label="Contactar por WhatsApp"
+            aria-expanded={showWhatsAppMenu}
+            aria-haspopup="true"
+            aria-controls="whatsapp-branch-menu"
             initial={{ opacity: 0, scale: 0.5, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
@@ -87,7 +91,7 @@ export default function ChatbotWidget() {
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
             className="fixed bottom-20 right-4 z-[60] w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer bg-green-500 text-white"
           >
-            <IconBrandWhatsapp size={24} />
+            <IconBrandWhatsapp size={24} aria-hidden="true" focusable="false" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -98,6 +102,9 @@ export default function ChatbotWidget() {
           <motion.div
             ref={waMenuRef}
             key="whatsapp-menu"
+            id="whatsapp-branch-menu"
+            role="menu"
+            aria-label="Sucursales de WhatsApp"
             initial={{ opacity: 0, y: 12, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.92 }}
@@ -108,15 +115,22 @@ export default function ChatbotWidget() {
               {sucursalesData.map((branch) => (
                 <a
                   key={branch.path}
+                  role="menuitem"
                   href={safeWhatsAppUrl(
                     branch.whatsapp,
                     "Hola, me interesan sus productos"
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Abrir WhatsApp de la sucursal ${branch.name}`}
                   className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-[var(--color-surface)] transition-colors"
                 >
-                  <IconBrandWhatsapp size={16} className="text-green-500 shrink-0" />
+                  <IconBrandWhatsapp
+                    size={16}
+                    aria-hidden="true"
+                    focusable="false"
+                    className="text-green-500 shrink-0"
+                  />
                   {branch.name}
                 </a>
               ))}
@@ -131,6 +145,8 @@ export default function ChatbotWidget() {
           <motion.button
             key="chat-fab"
             onClick={handleOpenChat}
+            aria-label="Abrir chat con el asistente virtual"
+            aria-haspopup="dialog"
             initial={{ opacity: 0, scale: 0.5, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
@@ -139,7 +155,7 @@ export default function ChatbotWidget() {
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
             className="fixed bottom-4 right-4 z-[60] w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer bg-[var(--color-brand-accent)] text-white"
           >
-            <Bot size={24} />
+            <Bot size={24} aria-hidden="true" focusable="false" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -149,6 +165,9 @@ export default function ChatbotWidget() {
         {isChatOpen && (
           <motion.div
             key="chat-panel"
+            role="dialog"
+            aria-modal="false"
+            aria-label="Chat con Asistente La Merced"
             initial={{ opacity: 0, y: 40, scale: 0.96, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
             exit={{ opacity: 0, y: 24, scale: 0.96, filter: "blur(4px)" }}
@@ -183,17 +202,23 @@ export default function ChatbotWidget() {
 
               <motion.button
                 onClick={() => close(OVERLAYS.CHATBOT)}
+                aria-label="Cerrar chat"
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 className="opacity-50 hover:opacity-100 transition-opacity cursor-pointer"
               >
-                <X size={18} />
+                <X size={18} aria-hidden="true" focusable="false" />
               </motion.button>
             </motion.div>
 
             {/* MENSAJES */}
-            <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3 chat-scrollbar">
+            <div
+              className="flex-1 overflow-y-auto px-4 py-3 space-y-3 chat-scrollbar"
+              role="log"
+              aria-live="polite"
+              aria-label="Mensajes del chat"
+            >
               {messages.length === 0 && (
                 <motion.p
                   initial={{ opacity: 0, y: 6 }}
@@ -238,6 +263,7 @@ export default function ChatbotWidget() {
                           <a
                             href={waUrl}
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="block mt-1 text-xs underline opacity-80"
                           >
                             Abrir WhatsApp
@@ -274,30 +300,35 @@ export default function ChatbotWidget() {
             </div>
 
             {/* INPUT */}
-            <motion.div
+            <motion.form
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.15, duration: 0.2 }}
               className="p-3 flex gap-2 border-t border-[var(--color-border-default)]"
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSend();
+              }}
             >
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Escribe tu mensaje..."
+                aria-label="Escribe tu mensaje"
                 className="flex-1 p-2 rounded-md text-sm outline-none transition-all duration-150 bg-[var(--color-surface)] border border-[var(--color-border-default)] text-[var(--foreground)]"
-                onKeyDown={(e) => e.key === "Enter" && handleSend()}
               />
 
               <motion.button
-                onClick={handleSend}
+                type="submit"
+                aria-label="Enviar mensaje"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.92 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 className="px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 bg-[var(--color-brand-accent)] text-white"
               >
-                <Send size={14} />
+                <Send size={14} aria-hidden="true" focusable="false" />
               </motion.button>
-            </motion.div>
+            </motion.form>
           </motion.div>
         )}
       </AnimatePresence>

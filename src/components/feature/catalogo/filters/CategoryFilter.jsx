@@ -1,9 +1,10 @@
 import Checkbox from "@/components/ui/form/Checkbox";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 export default function CategoryFilter({ title, options, selected, onToggle }) {
   const [open, setOpen] = useState(false);
+  const panelId = useId();
 
   return (
     <div className="border-b border-gray-200 dark:border-white/10 pb-4">
@@ -11,6 +12,8 @@ export default function CategoryFilter({ title, options, selected, onToggle }) {
       <button
         type="button"
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={panelId}
         className="w-full flex items-center justify-between text-left cursor-pointer"
       >
         <h3 className="font-semibold text-text-light dark:text-text-dark">
@@ -18,14 +21,27 @@ export default function CategoryFilter({ title, options, selected, onToggle }) {
         </h3>
 
         {open ? (
-          <ChevronUp className="text-gray-500" size={20} strokeWidth={3} />
+          <ChevronUp
+            className="text-gray-500"
+            size={20}
+            strokeWidth={3}
+            aria-hidden="true"
+          />
         ) : (
-          <ChevronDown className="text-gray-500" size={15} strokeWidth={3} />
+          <ChevronDown
+            className="text-gray-500"
+            size={15}
+            strokeWidth={3}
+            aria-hidden="true"
+          />
         )}
       </button>
 
       {/* Content */}
       <div
+        id={panelId}
+        aria-hidden={!open}
+        inert={!open}
         className={`
           mt-4 space-y-3 overflow-hidden transition-all duration-300
           ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}

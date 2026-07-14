@@ -14,7 +14,7 @@ const heroFade = {
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen">
       <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary via-brand-primary to-brand-accent py-20 md:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.08),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent_50%)]" />
@@ -122,6 +122,8 @@ export default function BlogPage() {
             >
               Ver catálogo
               <svg
+                aria-hidden="true"
+                focusable="false"
                 className="size-4"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -141,6 +143,8 @@ export default function BlogPage() {
             >
               Contactar
               <svg
+                aria-hidden="true"
+                focusable="false"
                 className="size-4"
                 fill="none"
                 viewBox="0 0 24 24"
