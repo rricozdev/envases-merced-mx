@@ -39,6 +39,8 @@ export default function BlogCard({ post, index = 0 }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.15),transparent_70%)]" />
         {Icon && (
           <Icon
+            aria-hidden="true"
+            focusable="false"
             className="relative z-10 size-20 text-white/25 transition-transform duration-500 group-hover:scale-110 group-hover:text-white/35"
             stroke={1.5}
           />
@@ -78,6 +80,8 @@ export default function BlogCard({ post, index = 0 }) {
           <span className="ml-auto inline-flex items-center gap-1 text-xs font-semibold text-brand-accent font-secondary transition-transform group-hover:translate-x-1">
             Leer artículo
             <svg
+              aria-hidden="true"
+              focusable="false"
               className="size-3"
               fill="none"
               viewBox="0 0 24 24"

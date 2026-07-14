@@ -12,6 +12,7 @@ import {
 
 import Button from "@/components/ui/Button";
 import { safeWhatsAppUrl } from "@/utils/whatsapp";
+import Link from "next/link";
 
 const SucursalView = ({ sucursal }) => {
   const iconClass = "text-brand-accent mt-0.5 shrink-0";
@@ -20,9 +21,25 @@ const SucursalView = ({ sucursal }) => {
     <div className="bg-background-light dark:bg-background-dark min-h-screen text-txtligth-primary dark:text-txtdark-primary">
       <div className="container mx-auto px-4 py-10 max-w-7xl">
         {/* Breadcrumb */}
-        <div className="text-sm text-gray-500 dark:text-txtdark-secondary mb-6">
-          Inicio / Sucursales / {sucursal.name}
-        </div>
+        <nav
+          aria-label="Breadcrumb"
+          className="text-sm text-gray-500 dark:text-txtdark-secondary mb-6"
+        >
+          <ol className="flex flex-wrap gap-2">
+            <li>
+              <Link href="/" className="hover:underline">
+                Inicio
+              </Link>
+            </li>
+            <li className="before:content-['/'] before:mr-2">Sucursales</li>
+            <li
+              className="before:content-['/'] before:mr-2"
+              aria-current="page"
+            >
+              {sucursal.name}
+            </li>
+          </ol>
+        </nav>
 
         {/* Título */}
         <h1 className="text-4xl md:text-5xl font-black text-corporate-blue dark:text-txtdark-brand-primary mb-3">
@@ -41,6 +58,7 @@ const SucursalView = ({ sucursal }) => {
             <div className="w-full h-full rounded-xl overflow-hidden shadow-md dark:shadow-none">
               <iframe
                 src={sucursal.mapUrl}
+                title={`Mapa de la sucursal ${sucursal.name}`}
                 className="w-full h-full border-0"
                 loading="lazy"
               />

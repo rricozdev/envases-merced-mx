@@ -9,6 +9,7 @@ El objetivo es garantizar:
 - Escalabilidad
 - Mantenibilidad
 - Buen SEO
+- Accesibilidad (WCAG + navegación agéntica)
 
 Cualquier implementación debe respetar estas pautas.
 
@@ -37,94 +38,65 @@ Todo el sistema visual se controla desde:
 
 ---
 
-## 📋 Memoria de Contexto — SEO
+## 4. Accesibilidad (Obligatorio)
 
-### Fuentes
-- `docs/https___envaseslamerced.mx_-Coverage-2026-07-04.xlsx` — Reporte de Google Search Console (Jul 2026)
-- `docs/seo-aeo-audit.md` — Auditoría SEO + AEO v1 (2026-06-21)
+Auditoría de Accessibility Tree / navegación agéntica aplicada en la rama
+`fix/a11y-agentic-navigation`. Estas reglas son obligatorias para todo código nuevo:
 
-### Problemas críticos de Search Console (pendientes)
-| Problema | Páginas | Validación |
-|---|---|---|
-| Soft 404 | 2 | No iniciada |
-| Error 403 | 1 | No iniciada |
-| Descubierta sin indexar | 6 | No iniciada |
+### 4.1 Nombres accesibles
 
-### Estrategia prioritaria (5 acciones) — COMPLETADA 2026-07-04
+- **Todo botón de solo icono debe recibir `ariaLabel`** al usar
+  `src/components/ui/Button.jsx`. No existe fallback genérico: un icon-only sin
+  `ariaLabel` emite `console.warn` en dev y queda sin nombre en el árbol.
+- `Button` acepta y reenvía: `ariaLabel`, `aria-label`, `aria-expanded`,
+  `aria-controls`, `aria-haspopup`.
+- Enlaces que solo contienen SVG/iconos deben llevar `aria-label`.
+- Todo `input`, `textarea` y `select` debe tener `<label>` asociado o `aria-label`.
+- Los `<iframe>` (mapas, embeds) deben tener `title`.
 
-### Acción #1 — Blog implementado ✅
-- Ruta: `/blog` (listado) + `/blog/[slug]` (6 artículos)
-- 6 artículos: *Tipos de envases PET*, *Cómo elegir proveedor*, *PET vs otros materiales*, *PET para cosméticos*, *Sustentabilidad y reciclaje*, *Normatividad en México*
-- Stack: `.jsx` (React puro) + `content.jsx` por artículo
-- Schema: `BlogPosting` + `BreadcrumbList` + `WebSite` en cada artículo
-- Diseño: Framer Motion, gradientes, barra de progreso, TOC sticky, compartir redes
-- Navegación: "Blog" en header y footer
+### 4.2 SVG e iconos
 
-### Acción #2 — Co-ocurrencia semántica ✅
-- `"proveedor de envases PET"`: 17 archivos (antes 3)
-- `"industria del packaging"`: 15 archivos (antes 0)
-- `"packaging"` fuera del blog: 12 archivos (antes 0)
-- Aplicado en: home hero, context, about, catálogo, contacto, 5 sucursales, footer, chatbot, schema, metadata
+- SVG decorativos: `aria-hidden="true" focusable="false"` (aplica también a
+  iconos de lucide/tabler dentro de botones ya etiquetados).
+- SVG informativos: `title` + nombre accesible.
 
-### Acción #3 — Entity SEO ✅
-- `organizationSchema`: `@id`, `foundingDate` (2021), `numberOfEmployees`, `areaServed` (MX), `PostalAddress`, `knowsAbout` (5 entidades)
-- `webSiteSchema`: `@id`, `SearchAction` en catálogo, `publisher` → `#organization`
-- `branchesSchema`: `@id` por sucursal, `parentOrganization` → `#organization`
-- `blogSchema`: `publisher` por `@id`, `isPartOf` → `#website`
-- Grafo de entidad conectado vía `@id`
+### 4.3 Componentes con estado abierto/cerrado
 
-### Acción #4 — Breadcrumb schema ✅
-- Nuevos: `/catalogo`, `/contacto`, `/cdmx`, `/puebla`, `/veracruz`, `/neza`, `/queretaro`
-- Ya existían: `/sobre-nosotros`, `/blog/*` (9 páginas)
-- Cobertura: 100% de páginas indexables
+- Toggles de menús, acordeones y paneles: `aria-expanded` + `aria-controls`
+  (ver `Header.jsx`, `CategoryFilter.jsx`, `CartFooter.jsx`, `ChatbotWidget.jsx`).
+- Drawers/modales: `role="dialog"` + `aria-modal` + `aria-label`, y `inert`
+  cuando están cerrados pero permanecen en el DOM (ver `CartDrawer.jsx`).
+- Menús flotantes: `role="menu"` / `role="menuitem"` (ver menú WhatsApp del chatbot).
+- Nada de interacciones solo-hover: todo submenú debe poder abrirse con teclado
+  (patrón implementado en el submenú "Sucursales" del Header).
 
-### Acción #5 — Correcciones técnicas ✅
-- Sitemap: referencia circular ya corregida (`additionalSitemaps` comentado)
-- robots.txt: creado en `public/` con link al sitemap
-- `<img>` → `<Image>`: 4 componentes migrados (ImageTextSection, CardOpinion, ProductCard, CartItem)
-- `.htaccess` corregido y diagnosticado via `docs/logs del servidor.odt`
+### 4.4 Formularios
 
-### Diagnóstico del servidor (logs)
-- **Error 403 masivo**: todas las páginas fallan con `AH01276: Cannot serve directory`
-- **Causa**: el servidor tiene directorios viejos (`/catalogo/`, `/contacto/`, `/cdmx/`, etc.) de un sitio anterior. Apache los encuentra como directorios, pero no tienen `index.html` → 403 Forbidden
-- **Raíz en `.htaccess`**: la regla `RewriteCond %{REQUEST_FILENAME} -d` atrapaba esos directorios vacíos antes de que el rewrite a `.html` pudiera actuar
+- Errores de validación: `aria-invalid` + `aria-describedby` en el campo y
+  `role="alert"` en el mensaje (ya implementado en `ui/form/Input.jsx` y
+  `ui/form/Textarea.jsx`; usar siempre estos componentes).
+- Notificaciones/avisos dinámicos: `role="alert"` o `aria-live`.
 
-### Fix del `.htaccess` (aplicar con deploy)
-```diff
-- RewriteCond %{REQUEST_FILENAME} -f [OR]
-- RewriteCond %{REQUEST_FILENAME} -d
-+ RewriteCond %{REQUEST_FILENAME} -f
-```
-- Solo sirve archivos reales. Todo lo demás → busca `.html` o devuelve `404.html` real
-- **IMPORTANTE**: el `.htaccess` nuevo solo funciona junto con los archivos del build (`out/*.html` planos). NO desplegar solo el `.htaccess` sin el build, o el sitio se rompe
-- El `.htaccess` actual en servidor (el original que funciona) está documentado más abajo
+### 4.5 Estructura
 
-### ⚠️ `.htaccess` actual en producción (funcionando)
-```apache
-Options -MultiViews
-<IfModule mod_headers.c>
-  Header always set Content-Security-Policy "..."
-  ...
-</IfModule>
-<IfModule mod_rewrite.c>
-  RewriteEngine On / RewriteBase /
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
-  RewriteRule ^$ index.html [L]
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [L]
-  RewriteRule ^ index.html [L]
-</IfModule>
+- Un solo `<h1>` por página; sin saltos de jerarquía de headings.
+- Cada página envuelve su contenido en `<main id="main-content">`
+  (requerido por el skip link global definido en `src/app/layout.js`).
+- `<nav>` múltiples deben diferenciarse con `aria-label`.
+- Breadcrumbs: `<nav aria-label="Breadcrumb"><ol>` con `next/link`
+  (nunca `<a>` para rutas internas) y `aria-current="page"` en el último ítem.
+- Inputs de búsqueda: `type="search"`.
+- Prohibido `<div onClick>` / `<span onClick>`: usar `<button>` o `<Link>`.
+
+### 4.6 Verificación
+
+Antes de commitear cambios de UI ejecutar:
+
+```bash
+npm run lint
+npm run build
 ```
 
-### `.htaccess` nuevo (para desplegar con el build)
-Archivo: `public/.htaccess` → se copia a `out/.htaccess` en el build
-Cambios vs el actual: sin `-d`, catch-all a `404.html`, `ErrorDocument 404`, cache headers
-
-### Estado actual
-- 5/5 acciones de código completadas
-- 18 páginas estáticas generadas (antes 11)
-- 6 artículos de blog con ~8,000 palabras de contenido original
-- **Pendiente**: hacer deploy completo (`out/` + `.htaccess` nuevo) para que los fixes de 403/Soft 404 surtan efecto
-- **Pendiente**: solicitar validación en GSC tras deploy para los 3 problemas críticos
+Deuda conocida (pre-existente, no bloquear por esto): errores
+`react-hooks/set-state-in-effect` en `CartProvider.jsx`, `ThemeProvider.jsx`
+y warning en `UIProvider.jsx`.

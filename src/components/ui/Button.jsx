@@ -16,7 +16,23 @@ export default function Button({
   htmlType = "button", // 🔥 estándar
   loading = false,
   ariaLabel,
+  "aria-label": ariaLabelAttr,
+  "aria-expanded": ariaExpanded,
+  "aria-controls": ariaControls,
+  "aria-haspopup": ariaHasPopup,
 }) {
+  const accessibleName = ariaLabel || ariaLabelAttr;
+
+  if (
+    process.env.NODE_ENV !== "production" &&
+    (iconOnly || (!children && icon)) &&
+    !accessibleName
+  ) {
+    console.warn(
+      "[Button] Botón de solo icono sin nombre accesible. Proporciona `ariaLabel`.",
+    );
+  }
+
   const isOnlyIcon = iconOnly || (!children && icon);
 
   // 🎨 COLORS
@@ -87,7 +103,11 @@ export default function Button({
         font-primary
         cursor-pointer
       `}
-      aria-label={isOnlyIcon ? ariaLabel || "Botón" : undefined}
+      aria-label={isOnlyIcon ? accessibleName : ariaLabelAttr}
+      aria-expanded={ariaExpanded}
+      aria-controls={ariaControls}
+      aria-haspopup={ariaHasPopup}
+      aria-busy={loading || undefined}
     >
       {loading ? (
         <span className="animate-spin">⏳</span>

@@ -75,7 +75,6 @@ export default function FilterSidebar({ filters, onFilterChange, onClearAll }) {
             options={group.options}
             selected={filters[group.id]}
             onToggle={(value) => onFilterChange(group.id, value)}
-            aria-label={`Filtrar por ${group.title.toLowerCase()}`}
           />
         ))}
       </motion.div>

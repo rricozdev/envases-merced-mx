@@ -12,6 +12,9 @@ export default function CartDrawer() {
 
   return (
     <aside
+      role="dialog"
+      aria-modal="true"
+      aria-label="Carrito de cotización"
       className={`
       fixed top-0 right-0 z-50
       h-dvh w-full sm:w-96
@@ -22,6 +25,7 @@ export default function CartDrawer() {
       ${open ? "translate-x-0" : "translate-x-full"}
       `}
       aria-hidden={!open}
+      inert={!open}
     >
       <CartHeader className="shrink-0" />
       <CartList />
